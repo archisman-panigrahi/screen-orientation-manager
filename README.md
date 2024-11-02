@@ -1,4 +1,4 @@
-## Screen Rotator for touch screen tablets (e.g. Surface RT) running GNU/Linux
+## Screen Rotator for touch screen tablets (e.g. Surface RT) running Raspberry Pi OS and other GNU/Linux distros
 ![screenshot](Screenshots/screenshot1.png)
 Based on [theGeekyLad/GtkExperiments](https://github.com/theGeekyLad/GtkExperiments)
 This app integrates twofing to enable two-finger gestures after screen rotation.
