@@ -10,38 +10,39 @@ Tested in Surface RT [running Raspberry Pi OS](https://openrt.gitbook.io/open-su
 ### Installation
 
 #### Raspberry Pi OS/Debian/Ubuntu
-The following installation script installs [twofing](https://github.com/plippo/twofing) for two-finger gestures, and then installs this tool, and adds it to the **autostart** list. 
+Download the prebuilt .deb package from [GitHub releases]().
 
-```
-wget https://raw.githubusercontent.com/archisman-panigrahi/surface-RT-screen-rotator/surface-rt/srt-screen-rotation-setup.sh
-bash srt-screen-rotation-setup.sh
-```
-And **reboot**.
-If you don't want to set up twofing, and only want to use this tool, then use the `setup.sh` in this repository instead.
+#### Other operating systems
 
-#### Arch Linux
+This project uses the Meson build system for configuration and installation.
+Build Instructions:
 
-Run the following commands one by one, and **reboot**.
+- Ensure you have Meson and Ninja installed on your system.
+- Install gtk3
+- Navigate to the project directory.
+- Run the following commands to build and install the application:
+```
+meson setup builddir --prefix=/usr
+sudo meson install -C builddir
+```
+To uninstall, run
+```
+sudo meson uninstall -C builddir
+```
+Running the Application
 
+After installation, you can run the application using:
 ```
-yay -S twofing-git
-cd && git clone https://github.com/archisman-panigrahi/surface-RT-screen-rotator
-cd surface-RT-screen-rotator
-bash move-files-around.sh
-```
-For autostart, either use the following command or use the appropriate settings in your desktop interface.
-```
-cp $HOME/.local/share/applications/surface-rt-screen-rotator.desktop $HOME/.config/autostart/
+screen-orientation-manager
 ```
 
 ### Different device?
 
-By default, the app uses the touchscreen name for Surface RT, for which the app was originally developed.
+By default, the app uses the touchscreen and touchpad ID for Chromebook 300e (hana/oak).
 If you are using a different device, you can find the touchscreen name by running the command `xinput list`. Then edit the textbox in the app, and enter the appropriate touchscreen name.
 
 ### Credits
 
 - Thanks to @rubo77, for this project builds upon his shell script.
 - Thanks to @theGeekyLad, as this project is a slightly modified version of their python application.
-- Thanks to @Plippo for creating [twofing](https://github.com/plippo/twofing).
 - The icon is based on GuLinux/ScreenRotator. Thanks to @GuLinux.
