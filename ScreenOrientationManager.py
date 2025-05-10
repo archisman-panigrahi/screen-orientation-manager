@@ -24,6 +24,7 @@ class ScreenOrientationManager(Gtk.Window):
 
         # window
         Gtk.Window.__init__(self, title="Screen Orientation Manager for X11")
+        self.set_icon_name("screen-orientation-manager")
 
         # layout
         self.grid = Gtk.Grid()
@@ -64,7 +65,7 @@ class ScreenOrientationManager(Gtk.Window):
         self.grid.attach(self.touchpad_entry, 1, 4, 50, 1)
 
         # [3] add check button
-        self.display_check = Gtk.CheckButton(label="Lock Touchscreen and Touchpad ID")
+        self.display_check = Gtk.CheckButton(label="Lock Touchscreen and Touchpad ID to save")
         #self.display_check.props.margin_top = margin
         if len(devices[3]) != 0:
             self.display_check.set_active(bool(devices[3]))
