@@ -1,4 +1,4 @@
 
-hid-over-i2c 03EB:8207
+hid-over-i2c 06CB:7817
 
-False
+True
