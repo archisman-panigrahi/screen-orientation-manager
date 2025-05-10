@@ -5,6 +5,15 @@ gi.require_version('Gtk', '3.0')
 from gi.repository import Gtk
 script_dir = os.path.dirname(__file__)
 
+# Use config file in user's home directory
+CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".config", "screen-orientation-manager.conf")
+
+# Create config file with defaults if it does not exist
+if not os.path.exists(CONFIG_PATH):
+    os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok=True)
+    with open(CONFIG_PATH, 'w') as f:
+        f.write("Elan Touchpad\nhid-over-i2c 06CB:7817\n\nTrue\n")
+
 class ScreenOrientationManager(Gtk.Window):
 
     def __init__(self):
@@ -14,7 +23,7 @@ class ScreenOrientationManager(Gtk.Window):
         devices = self.popcache()
 
         # window
-        Gtk.Window.__init__(self, title="Screen Orientation Manager")
+        Gtk.Window.__init__(self, title="Screen Orientation Manager for X11")
 
         # layout
         self.grid = Gtk.Grid()
@@ -25,29 +34,37 @@ class ScreenOrientationManager(Gtk.Window):
         self.add(self.grid)
 
         # [0] add instruction label
-        self.touchscreen_hint = Gtk.Label(label="Use `xinput list` to find your")
-        self.touchscreen_hint2 = Gtk.Label(label="touchscreen id and enter it below.")
+        self.touchscreen_hint = Gtk.Label(label="Use `xinput list` to find your touchpad id")
+        self.touchscreen_hint2 = Gtk.Label(label="and touchscreen id and enter it below.")
         self.touchscreen_hint2.props.margin_bottom = 5
-        self.grid.attach(self.touchscreen_hint, 1, 1, 50, 1)
-        self.grid.attach(self.touchscreen_hint2, 1, 2, 50, 1)
+        self.grid.attach(self.touchscreen_hint, 0, 1, 50, 1)
+        self.grid.attach(self.touchscreen_hint2, 0, 2, 50, 1)
 
         # [1] add screen entry
+        self.screen_label = Gtk.Label(label="Touchscreen ID")
+        self.screen_label.props.margin_right = 10
+        self.screen_label.set_valign(Gtk.Align.CENTER)
+        self.grid.attach(self.screen_label, 0, 3, 1, 1)
         self.screen_entry = Gtk.Entry()
-        self.screen_entry.set_placeholder_text("e.g. ELAN Touchscreen")
+        self.screen_entry.set_placeholder_text("e.g. hid-over-i2c 06CB:7817")
         if len(devices[1]) != 0:
             self.screen_entry.set_text(devices[1])
         self.grid.attach(self.screen_entry, 1, 3, 50, 1)
 
         # [2] add touchpad entry
+        self.touchpad_label = Gtk.Label(label="Touchpad ID")
+        self.touchpad_label.props.margin_right = 10
+        self.touchpad_label.set_valign(Gtk.Align.CENTER)
+        self.grid.attach(self.touchpad_label, 0, 4, 1, 1)
         self.touchpad_entry = Gtk.Entry()
         self.touchpad_entry.props.margin_top = margin
         self.touchpad_entry.set_placeholder_text("e.g. ELAN Touchpad")
         if len(devices[0]) != 0:
             self.touchpad_entry.set_text(devices[0])
-        #self.grid.attach(self.touchpad_entry, 1, 4, 50, 1)
+        self.grid.attach(self.touchpad_entry, 1, 4, 50, 1)
 
         # [3] add check button
-        self.display_check = Gtk.CheckButton(label="Lock touchscreen id")
+        self.display_check = Gtk.CheckButton(label="Lock Touchscreen and Touchpad ID")
         #self.display_check.props.margin_top = margin
         if len(devices[3]) != 0:
             self.display_check.set_active(bool(devices[3]))
@@ -74,20 +91,18 @@ class ScreenOrientationManager(Gtk.Window):
         right = self.create_button(self.buttons_grid, "Right", normal)
         invert = self.create_button(self.buttons_grid, "Invert", right)
 
-        '''
-        # [7] help button layout
-        self.help_button_grid = Gtk.Grid()
-        self.help_button_grid.props.margin_top = margin
-        self.grid.attach(self.help_button_grid, 1, 7, 1, 1)
-        '''
-        # Restart Twofing Button
-        restart_twofing = self.create_restart_twofing_button(self.buttons_grid, "Restart Twofing", None)
-        # [1] help button
-        #help = self.create_help_button(self.buttons_grid, "Help", None)
+        # [2] add credits button centered on a new line
+        self.credits_grid = Gtk.Grid()
+        self.credits_grid.props.margin_top = margin
+        self.grid.attach(self.credits_grid, 1, 8, 50, 1)  # Span 50 columns to center
+
+        credits = Gtk.Button(label="About")
+        credits.connect("clicked", self.on_credits_clicked)
+        self.credits_grid.attach(credits, 25, 0, 1, 1)  # Attach at center column (roughly)
+
 
         # finally
         self.on_check_changed(self.display_check)
-        proc = subprocess.Popen(['bash', os.path.join(script_dir,'bin/twofing.sh')], stdout=subprocess.PIPE)#.wait()
 
     def create_button(self, grid, label, sibling):
         button = Gtk.Button(label=label)
@@ -100,44 +115,56 @@ class ScreenOrientationManager(Gtk.Window):
             grid.attach_next_to(button, sibling, Gtk.PositionType.RIGHT, 1, 1)
         return button
 
-    def create_restart_twofing_button(self, grid, label, sibling):
+    def create_credits_button(self, grid, label, sibling):
         button = Gtk.Button(label=label)
-        button.connect("clicked", self.on_click)
-        margin = 20
-        button.props.margin_top = margin
-        button.props.margin_left = margin
-        grid.attach(button, 2, 2, 2, 1)
+        button.props.margin_left = 20
+        button.connect("clicked", self.on_credits_clicked)
+        grid.attach_next_to(button, sibling, Gtk.PositionType.RIGHT, 1, 1)
         return button
+
+    def on_credits_clicked(self, widget):
+        about = Gtk.AboutDialog(transient_for=self, modal=True)
+        about.set_program_name("Screen Orientation Manager for X11")
+        about.set_version("1.0")
+        about.set_comments(
+            "This program allows you to\n"
+            "rotate the touchscreen input and\n"
+            "touchpad of your laptop or tablet running X11.\n"
+        )
+        about.set_website("https://github.com/archisman-panigrahi/surface-RT-screen-rotator")
+        about.set_website_label("Homepage")
+        about.set_authors([
+            "Archisman Panigrahi (@archisman-panigrahi)",
+            "Based on work by Ruben Barkow (@rubo77)",
+            "and Rahul Pillai (@theGeekyLad)"
+        ])
+        about.set_logo_icon_name("screen-orientation-manager")
+        about.run()
+        about.destroy()
 
     def on_click(self, widget):
 
         label = str(widget.get_label())
         print(label)
-        if label== "Restart Twofing":
-            proc = subprocess.Popen(['bash', os.path.join(script_dir,'bin/twofing.sh')], stdout=subprocess.PIPE)#.wait()
-            print("done restarting")
-        else:
-            self.encache(self.touchpad_entry.get_text(), self.screen_entry.get_text(), self.display_entry.get_text(),
-                         str(self.display_check.get_active()))
-            if label.lower() == "left":
-                self.rotate("l")
-            elif label.lower() == "normal":
-                self.rotate("n")
-            elif label.lower() == "right":
-                self.rotate("r")
-            elif label.lower() == "invert":
-                self.rotate("i")
-        #else:
-            #self.create_message_dialog("Manual", "1. Run xinput\n2. Note down your touchscreen and touchpad names\n"
-            #                                     "3. If you don't have a touchscreen, check the box\n4. In case of "
-            #                                     "#3, run xrandr\n5. In case of #4, note down your display name")
+        self.encache(self.touchpad_entry.get_text(), self.screen_entry.get_text(), self.display_entry.get_text(),
+                     str(self.display_check.get_active()))
+        if label.lower() == "left":
+            self.rotate("l")
+        elif label.lower() == "normal":
+            self.rotate("n")
+        elif label.lower() == "right":
+            self.rotate("r")
+        elif label.lower() == "invert":
+            self.rotate("i")
         
     def on_check_changed(self, widget):
         if widget.get_active() is True:
             self.screen_entry.set_sensitive(False)
+            self.touchpad_entry.set_sensitive(False)
             self.display_entry.set_sensitive(True)
         else:
             self.screen_entry.set_sensitive(True)
+            self.touchpad_entry.set_sensitive(True)
             self.display_entry.set_sensitive(False)
 
     def create_message_dialog(self, title, message):
@@ -147,20 +174,34 @@ class ScreenOrientationManager(Gtk.Window):
         message_dialog.destroy()
 
     def rotate(self, rotation):
-        proc = subprocess.Popen(['sh', os.path.join(script_dir,'bin/' + rotation + '.sh'), self.touchpad_entry.get_text(), self.screen_entry.get_text(), self.display_entry.get_text()], stdout=subprocess.PIPE).wait()
+        proc = subprocess.Popen(['sh', os.path.join(script_dir,'rotation-scripts/' + rotation + '.sh'), self.touchpad_entry.get_text(), self.screen_entry.get_text(), self.display_entry.get_text()], stdout=subprocess.PIPE).wait()
 
     def encache(self, touchpad, touchscreen, display, checked):
-        with open(os.path.join(script_dir,'bin/config.txt'), 'w') as file:
+        os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok=True)
+        with open(CONFIG_PATH, 'w') as file:
             file.write(touchpad + "\n" + touchscreen + "\n" + display + "\n" + checked)
 
     def popcache(self):
-        devices = []
-        with open(os.path.join(script_dir,'bin/config.txt'), 'r') as file:
-            devices = [file.readline().strip(), file.readline().strip(), file.readline().strip(), file.readline().strip()]
+        devices = ["", "", "", ""]
+        if os.path.exists(CONFIG_PATH):
+            with open(CONFIG_PATH, 'r') as file:
+                lines = file.readlines()
+                for i in range(min(4, len(lines))):
+                    devices[i] = lines[i].strip()
         return devices
+
+    def on_window_close(self, *args):
+        self.encache(
+            self.touchpad_entry.get_text(),
+            self.screen_entry.get_text(),
+            self.display_entry.get_text(),
+            str(self.display_check.get_active())
+        )
+        return False  # Allow the window to close
 
 
 win = ScreenOrientationManager()
+win.connect("delete-event", win.on_window_close)  # Save config before closing
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
 Gtk.main()

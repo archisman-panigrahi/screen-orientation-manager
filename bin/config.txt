@@ -1,4 +1,0 @@
-
-hid-over-i2c 06CB:7817
-
-True

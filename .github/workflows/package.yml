@@ -1,0 +1,34 @@
+name: Build and Upload Packages
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  build-deb:
+    name: Build Debian Package
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y debhelper meson dh-make
+
+      - name: Build .deb package
+        run: |
+          DPKG_DEB_COMPRESSOR_TYPE=xz dpkg-buildpackage -us -uc -nc
+          mv ../*.deb .
+
+      - name: Upload .deb to GitHub Release (only for releases)
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "*.deb"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

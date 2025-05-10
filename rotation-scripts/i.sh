@@ -2,8 +2,8 @@
 
 # created by Ruben Barkow (@rubo77)
 # modified by Rahul Pillai (@theGeekyLad)
+# maintained by Archisman Panigrahi (@archisman-panigrahi)
 
-# touchpadEnabled=$(xinput --list-props "$1" | awk '/Device Enabled/{print $NF}')
 if [ ! -z "$1" ]
 then
     screenMatrix=$(xinput --list-props "$1" | awk '/Coordinate Transformation Matrix/{print $5$6$7$8$9$10$11$12$NF}')
@@ -35,20 +35,19 @@ left_float='0.000000,-1.000000,1.000000,1.000000,0.000000,0.000000,0.000000,0.00
 #⎣  0 0 1 ⎦
 right='0 1 0 -1 0 1 0 0 1'
 
+###########################################################################################################
+
 # xrandr -o normal
 if [ ! -z "$2" ]
 then
-    xrandr -o right
-    xinput set-prop "$2" 'Coordinate Transformation Matrix' $right
-    bash ${PWD}/bin/twofing.sh
+    xrandr -o inverted
+    xinput set-prop "$2" 'Coordinate Transformation Matrix' $inverted
 fi
 if [ ! -z "$1" ]
 then
-    xinput set-prop "$1" 'Coordinate Transformation Matrix' $right
+    xinput set-prop "$1" 'Coordinate Transformation Matrix' $inverted
 fi
 if [ ! -z "$3" ]
 then
-    xrandr --output "$3" --rotate right
+    xrandr --output "$3" --rotate inverted
 fi
-# xinput disable "$1"
-# killall onboard
