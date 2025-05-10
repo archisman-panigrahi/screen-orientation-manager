@@ -8,6 +8,8 @@ Standards-Version: 4.5.0
 Package: screen-orientation-manager
 Architecture: all
 Depends: ${misc:Depends},
+ x11-xserver-utils,
+ python3,
  gir1.2-gtk-3.0
 Description: Screen Orientation Manager for X11
  This app rotates the touchscreen and touchpad input and also rotates the display.
