@@ -131,7 +131,7 @@ class ScreenOrientationManager(Gtk.Window):
             "rotate the touchscreen input and\n"
             "touchpad of your laptop or tablet running X11.\n"
         )
-        about.set_website("https://github.com/archisman-panigrahi/surface-RT-screen-rotator")
+        about.set_website("https://github.com/archisman-panigrahi/surface-RT-screen-rotator/tree/screen-orientation-manager")
         about.set_website_label("Homepage")
         about.set_authors([
             "Archisman Panigrahi (@archisman-panigrahi)",
