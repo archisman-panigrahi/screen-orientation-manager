@@ -26,13 +26,42 @@ class ScreenOrientationManager(Gtk.Window):
         Gtk.Window.__init__(self, title="Screen Orientation Manager for X11")
         self.set_icon_name("screen-orientation-manager")
 
+        # --- Menu Bar ---
+        menubar = Gtk.MenuBar()
+
+        # File menu
+        file_menu = Gtk.Menu()
+        file_item = Gtk.MenuItem(label="File")
+        file_item.set_submenu(file_menu)
+
+        quit_item = Gtk.MenuItem(label="Quit")
+        quit_item.connect("activate", self.on_quit)
+        file_menu.append(quit_item)
+
+        # Help menu
+        help_menu = Gtk.Menu()
+        help_item = Gtk.MenuItem(label="Help")
+        help_item.set_submenu(help_menu)
+
+        about_item = Gtk.MenuItem(label="About")
+        about_item.connect("activate", self.on_credits_clicked)
+        help_menu.append(about_item)
+
+        menubar.append(file_item)
+        menubar.append(help_item)
+
+        # Main vertical box
+        vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
+        vbox.pack_start(menubar, False, False, 0)
+
         # layout
         self.grid = Gtk.Grid()
         self.grid.props.margin_top = margin
         self.grid.props.margin_left = margin
         self.grid.props.margin_bottom = margin
         self.grid.props.margin_right = margin
-        self.add(self.grid)
+        vbox.pack_start(self.grid, True, True, 0)
+        self.add(vbox)
 
         # [0] add instruction label
         self.touchscreen_hint = Gtk.Label(label="Use `xinput list` to find your touchpad id")
@@ -92,15 +121,14 @@ class ScreenOrientationManager(Gtk.Window):
         right = self.create_button(self.buttons_grid, "Right", normal)
         invert = self.create_button(self.buttons_grid, "Invert", right)
 
-        # [2] add credits button centered on a new line
-        self.credits_grid = Gtk.Grid()
-        self.credits_grid.props.margin_top = margin
-        self.grid.attach(self.credits_grid, 1, 8, 50, 1)  # Span 50 columns to center
-
-        credits = Gtk.Button(label="About")
-        credits.connect("clicked", self.on_credits_clicked)
-        self.credits_grid.attach(credits, 25, 0, 1, 1)  # Attach at center column (roughly)
-
+        # Remove About button and credits_grid setup
+        # (Delete or comment out the following lines:)
+        # self.credits_grid = Gtk.Grid()
+        # self.credits_grid.props.margin_top = margin
+        # self.grid.attach(self.credits_grid, 1, 8, 50, 1)
+        # credits = Gtk.Button(label="About")
+        # credits.connect("clicked", self.on_credits_clicked)
+        # self.credits_grid.attach(credits, 25, 0, 1, 1)
 
         # finally
         self.on_check_changed(self.display_check)
@@ -128,9 +156,9 @@ class ScreenOrientationManager(Gtk.Window):
         about.set_program_name("Screen Orientation Manager for X11")
         about.set_version("1.0")
         about.set_comments(
-            "This program allows you to\n"
-            "rotate the touchscreen input and\n"
-            "touchpad of your laptop or tablet running X11.\n"
+            "This program allows you to rotate the\n"
+            "touchscreen input, display and touchpad\n"
+            "input of your laptop or tablet running X11.\n"
         )
         about.set_website("https://github.com/archisman-panigrahi/surface-RT-screen-rotator/tree/screen-orientation-manager")
         about.set_website_label("Homepage")
@@ -138,6 +166,9 @@ class ScreenOrientationManager(Gtk.Window):
             "Archisman Panigrahi (@archisman-panigrahi)",
             "Based on work by Ruben Barkow (@rubo77)",
             "and Rahul Pillai (@theGeekyLad)"
+        ])
+        about.set_artists([
+            "Archisman Panigrahi and @GuLinux"
         ])
         about.set_logo_icon_name("screen-orientation-manager")
         about.run()
@@ -199,6 +230,10 @@ class ScreenOrientationManager(Gtk.Window):
             str(self.display_check.get_active())
         )
         return False  # Allow the window to close
+
+    def on_quit(self, widget):
+        self.on_window_close()  # Save config before quitting
+        Gtk.main_quit()
 
 
 win = ScreenOrientationManager()
