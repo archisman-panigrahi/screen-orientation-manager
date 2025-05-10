@@ -24,12 +24,19 @@ class ScreenOrientationManager(Gtk.Window):
         self.grid.props.margin_right = margin
         self.add(self.grid)
 
+        # [0] add instruction label
+        self.touchscreen_hint = Gtk.Label(label="Use `xinput list` to find your")
+        self.touchscreen_hint2 = Gtk.Label(label="touchscreen id and enter it below.")
+        self.touchscreen_hint2.props.margin_bottom = 5
+        self.grid.attach(self.touchscreen_hint, 1, 1, 50, 1)
+        self.grid.attach(self.touchscreen_hint2, 1, 2, 50, 1)
+
         # [1] add screen entry
         self.screen_entry = Gtk.Entry()
         self.screen_entry.set_placeholder_text("e.g. ELAN Touchscreen")
         if len(devices[1]) != 0:
             self.screen_entry.set_text(devices[1])
-        self.grid.attach(self.screen_entry, 1, 1, 50, 1)
+        self.grid.attach(self.screen_entry, 1, 3, 50, 1)
 
         # [2] add touchpad entry
         self.touchpad_entry = Gtk.Entry()
@@ -37,7 +44,7 @@ class ScreenOrientationManager(Gtk.Window):
         self.touchpad_entry.set_placeholder_text("e.g. ELAN Touchpad")
         if len(devices[0]) != 0:
             self.touchpad_entry.set_text(devices[0])
-        #self.grid.attach(self.touchpad_entry, 1, 2, 50, 1)
+        #self.grid.attach(self.touchpad_entry, 1, 4, 50, 1)
 
         # [3] add check button
         self.display_check = Gtk.CheckButton(label="Lock touchscreen id")
@@ -45,8 +52,7 @@ class ScreenOrientationManager(Gtk.Window):
         if len(devices[3]) != 0:
             self.display_check.set_active(bool(devices[3]))
         self.display_check.connect("clicked", self.on_check_changed)
-        self.grid.attach(self.display_check, 1, 3, 1, 1)
-
+        self.grid.attach(self.display_check, 1, 5, 1, 1)
 
         # [4] add display entry
         self.display_entry = Gtk.Entry()
@@ -54,13 +60,13 @@ class ScreenOrientationManager(Gtk.Window):
         self.display_entry.set_placeholder_text("e.g. Video Bus")
         if len(devices[2]) != 0:
             self.display_entry.set_text(devices[2])
-        #self.grid.attach(self.display_entry, 1, 4, 50, 1)
+        #self.grid.attach(self.display_entry, 1, 6, 50, 1)
         self.display_entry.set_sensitive(False)
 
         # [5] button layout
         self.buttons_grid = Gtk.Grid()
         self.buttons_grid.props.margin_top = margin
-        self.grid.attach(self.buttons_grid, 1, 5, 1, 1)
+        self.grid.attach(self.buttons_grid, 1, 7, 1, 1)
 
         # [1] add buttons
         left = self.create_button(self.buttons_grid, "Left", None)
