@@ -1,8 +1,7 @@
 screen-orientation-manager (1.0) noble; urgency=medium
 
-  * Initial release of Screen Orientation Manager for X11.
-  * Rotate touchscreen and touchpad input for laptops/tablets.
-  * Simple GTK3 interface for device selection and rotation.
+  * Manually rotate touchscreen and touchpad input for laptops/tablets.
+  * Simple GTK3 interface with configurable touchpad xinput ID.
   * Saves device configuration for future sessions.
 
  -- Archisman Panigrahi <apandada1@gmail.com>  Sat, 10 May 2025 18:35:02 -0400

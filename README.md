@@ -1,4 +1,4 @@
-# <img src="screen-orientation-manager.svg" align="left" width="100" height="100">
+# <img src="screen-orientation-manager.svg" align="left" width="128" height="128">
 
 ## Screen Orientation Manager for touchscreen tablets (e.g. Surface RT/Touch screen ARM Chromebooks) running GNU/Linux with X11
 
@@ -15,7 +15,7 @@ Tested in Surface RT [running Raspberry Pi OS](https://openrt.gitbook.io/open-su
 
 #### Raspberry Pi OS/Debian/Ubuntu
 
-Download the prebuilt .deb package from [GitHub releases](https://github.com/archisman-panigrahi/surface-RT-screen-rotator/releases/), and install it with
+Download the prebuilt .deb package from [GitHub Releases](https://github.com/archisman-panigrahi/surface-RT-screen-rotator/releases/), and install it with
 
 ```
 sudo apt install /path/to/downloaded_installer.deb
