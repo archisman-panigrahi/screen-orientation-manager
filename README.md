@@ -20,7 +20,7 @@ Download the prebuilt .deb package from [GitHub Releases](https://github.com/arc
 ```
 sudo apt install /path/to/downloaded_installer.deb
 ```
-Or use a graphicall installer like GDebi to install the .deb file.
+Or use a graphical installer like GDebi to install the .deb file.
 
 #### Other operating systems
 
