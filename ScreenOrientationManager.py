@@ -1,8 +1,19 @@
 import gi
 import subprocess
 import os
+
 gi.require_version('Gtk', '3.0')
-from gi.repository import Gtk
+
+# Try to import AyatanaAppIndicator3, set a flag if available
+try:
+    gi.require_version('AyatanaAppIndicator3', '0.1')
+    from gi.repository import AyatanaAppIndicator3
+    HAS_APPINDICATOR = True
+except (ImportError, ValueError):
+    print("AyatanaAppIndicator3 not found, running without system tray icon.")
+    HAS_APPINDICATOR = False
+
+from gi.repository import Gtk, GObject
 script_dir = os.path.dirname(__file__)
 
 # Use config file in user's home directory
@@ -130,6 +141,18 @@ class ScreenOrientationManager(Gtk.Window):
         # credits.connect("clicked", self.on_credits_clicked)
         # self.credits_grid.attach(credits, 25, 0, 1, 1)
 
+        # Add Ayatana AppIndicator (system tray icon) if available
+        if HAS_APPINDICATOR:
+            self.indicator = AyatanaAppIndicator3.Indicator.new(
+                "screen-orientation-manager",
+                "screen-orientation-manager",  # icon name, or use a path to an icon file
+                AyatanaAppIndicator3.IndicatorCategory.APPLICATION_STATUS
+            )
+            self.indicator.set_status(AyatanaAppIndicator3.IndicatorStatus.ACTIVE)
+            self.indicator.set_menu(self.build_tray_menu())
+        else:
+            self.indicator = None
+
         # finally
         self.on_check_changed(self.display_check)
 
@@ -229,11 +252,58 @@ class ScreenOrientationManager(Gtk.Window):
             self.display_entry.get_text(),
             str(self.display_check.get_active())
         )
-        return False  # Allow the window to close
+        # If tray is available, hide window instead of quitting
+        if hasattr(self, 'indicator') and self.indicator is not None:
+            self.hide()
+            return True  # Prevent window from closing
+        else:
+            Gtk.main_quit()
+            return False  # Allow the window to close
 
     def on_quit(self, widget):
         self.on_window_close()  # Save config before quitting
         Gtk.main_quit()
+
+    def on_tray_activate(self, icon):
+        # Show or raise the window when tray icon is clicked
+        if not self.is_visible():
+            self.show_all()
+        else:
+            self.present()
+
+    def on_tray_popup(self, icon, button, time):
+        menu = Gtk.Menu()
+
+        show_item = Gtk.MenuItem(label="Show/Hide")
+        show_item.connect("activate", self.toggle_window)
+        menu.append(show_item)
+
+        quit_item = Gtk.MenuItem(label="Quit")
+        quit_item.connect("activate", self.on_quit)
+        menu.append(quit_item)
+
+        menu.show_all()
+        menu.popup(None, None, None, None, button, time)
+
+    def toggle_window(self, widget):
+        if self.is_visible():
+            self.hide()
+        else:
+            self.show_all()
+
+    def build_tray_menu(self):
+        menu = Gtk.Menu()
+
+        show_item = Gtk.MenuItem(label="Show/Hide")
+        show_item.connect("activate", self.toggle_window)
+        menu.append(show_item)
+
+        quit_item = Gtk.MenuItem(label="Quit")
+        quit_item.connect("activate", self.on_quit)
+        menu.append(quit_item)
+
+        menu.show_all()
+        return menu
 
 
 win = ScreenOrientationManager()
