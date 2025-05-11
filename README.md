@@ -1,7 +1,11 @@
-## Screen Rotator for touch screen tablets (e.g. Surface RT/Touch screen ARM Chromebooks) running Raspberry Pi OS and other GNU/Linux distros
+# <img src="screen-orientation-manager.svg" align="left" width="100" height="100">
+
+## Screen Orientation Manager for touchscreen tablets (e.g. Surface RT/Touch screen ARM Chromebooks) running GNU/Linux with X11
+
+You can use this app to easily rotate the touchsceen input, display orientation and touchpad input in one go.
+
 ![screenshot](Screenshots/screenshot1.png)
 Based on [theGeekyLad/GtkExperiments](https://github.com/theGeekyLad/GtkExperiments)
-This app integrates twofing to enable two-finger gestures after screen rotation.
 
 Tested in Surface RT [running Raspberry Pi OS](https://openrt.gitbook.io/open-surfacert/surface-rt/linux/root-filesystem/distros/raspberry-pi-os) and [Lenovo Chromebook 300e](https://velvet-os.github.io/) running Debian Trixie.
 
@@ -10,7 +14,13 @@ Tested in Surface RT [running Raspberry Pi OS](https://openrt.gitbook.io/open-su
 ### Installation
 
 #### Raspberry Pi OS/Debian/Ubuntu
-Download the prebuilt .deb package from [GitHub releases]().
+
+Download the prebuilt .deb package from [GitHub releases](https://github.com/archisman-panigrahi/surface-RT-screen-rotator/releases/), and install it with
+
+```
+sudo apt install /path/to/downloaded_installer.deb
+```
+Or use a graphicall installer like GDebi to install the .deb file.
 
 #### Other operating systems
 
