@@ -177,11 +177,11 @@ class ScreenOrientationManager(Gtk.Window):
     def on_credits_clicked(self, widget):
         about = Gtk.AboutDialog(transient_for=self, modal=True)
         about.set_program_name("Screen Orientation Manager for X11")
-        about.set_version("1.1")
+        about.set_version("1.2")
         about.set_comments(
             "This program allows you to rotate the\n"
-            "touchscreen input, display and touchpad\n"
-            "input of your laptop or tablet running X11.\n"
+            "touchscreen, display and touchpad orientation\n"
+            "of your convertible laptop or tablet running X11.\n"
         )
         about.set_website("https://github.com/archisman-panigrahi/surface-RT-screen-rotator/tree/screen-orientation-manager")
         about.set_website_label("Homepage")
