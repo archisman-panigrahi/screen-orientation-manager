@@ -4,7 +4,9 @@
 
 You can use this app to easily rotate the touchsceen input, display orientation and touchpad input in one go.
 
-![screenshot](Screenshots/screenshot1.png)
+![screenshot1](Screenshots/screenshot1.png)
+![screenshot2](Screenshots/screenshot2.png)
+
 Based on [theGeekyLad/GtkExperiments](https://github.com/theGeekyLad/GtkExperiments)
 
 Tested in Surface RT [running Raspberry Pi OS](https://openrt.gitbook.io/open-surfacert/surface-rt/linux/root-filesystem/distros/raspberry-pi-os) and [Lenovo Chromebook 300e](https://velvet-os.github.io/) running Debian Trixie.
