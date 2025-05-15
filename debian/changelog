@@ -1,3 +1,10 @@
+screen-orientation-manager (1.2) noble; urgency=medium
+
+  * Fixed application icon not appearing in the XFCE dock by adding StartupWMClass to desktop file.
+  * Added direct orientation change options (Left, Normal, Right, Invert) to the system tray menu for quicker access.
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Thu, 15 May 2025 12:00:00 -0400
+
 screen-orientation-manager (1.1) noble; urgency=medium
 
   * Added optional system tray icon (Ayatana AppIndicator) for quick access and background operation.
