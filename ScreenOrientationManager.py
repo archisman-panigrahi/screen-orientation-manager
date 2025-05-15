@@ -298,6 +298,18 @@ class ScreenOrientationManager(Gtk.Window):
         show_item.connect("activate", self.toggle_window)
         menu.append(show_item)
 
+        menu.append(Gtk.SeparatorMenuItem())
+
+        # Add rotation options
+        for label, rot in [("Normal", "n"), ("Left", "l"), ("Right", "r"), ("Invert", "i")]:
+            item = Gtk.MenuItem(label=label)
+            item.connect("activate", lambda w, r=rot: self.rotate(r))
+            menu.append(item)
+
+        menu.append(Gtk.SeparatorMenuItem())
+
+        menu.append(Gtk.SeparatorMenuItem())
+
         quit_item = Gtk.MenuItem(label="Quit")
         quit_item.connect("activate", self.on_quit)
         menu.append(quit_item)
