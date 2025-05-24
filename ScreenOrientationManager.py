@@ -167,15 +167,6 @@ class ScreenOrientationManager(Gtk.Window):
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         )
 
-        # Remove About button and credits_grid setup
-        # (Delete or comment out the following lines:)
-        # self.credits_grid = Gtk.Grid()
-        # self.credits_grid.props.margin_top = margin
-        # self.grid.attach(self.credits_grid, 1, 8, 50, 1)
-        # credits = Gtk.Button(label="About")
-        # credits.connect("clicked", self.on_credits_clicked)
-        # self.credits_grid.attach(credits, 25, 0, 1, 1)
-
         # Add Ayatana AppIndicator (system tray icon) if available
         if HAS_APPINDICATOR:
             self.indicator = AyatanaAppIndicator3.Indicator.new(
