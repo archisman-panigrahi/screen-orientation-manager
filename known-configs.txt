@@ -1,0 +1,27 @@
+# Computer name
+touchpad-name (keep blank if unavialable)
+touchscreen-name
+keep-blank
+True
+stylus-name (keep blank if unavailable)
+keep-blank
+# Google Hana
+Elan Touchpad
+hid-over-i2c 06CB:7817
+
+True
+
+
+# Google Scarlet
+
+Elan Touchscreen
+
+True
+hid-over-i2c 2D1F:0036 Stylus stylus
+
+# Google Wormdingler
+Google Inc. Hammer
+hid-over-i2c 0603:604A
+
+True
+hid-over-i2c 0603:604A Stylus stylus
