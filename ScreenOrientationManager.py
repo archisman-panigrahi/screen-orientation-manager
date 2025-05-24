@@ -77,6 +77,7 @@ class ScreenOrientationManager(Gtk.Window):
 
         # Attach the autodetect button at the very top (row 0)
         self.autodetect_button = Gtk.Button(label="Autodetect")
+        self.autodetect_button.get_style_context().add_class("autodetect-btn")  # Add this line
         self.autodetect_button.connect("clicked", self.on_autodetect_clicked)
         self.grid.attach(self.autodetect_button, 1, 0, 1, 1)
 
@@ -144,11 +145,27 @@ class ScreenOrientationManager(Gtk.Window):
         self.buttons_grid.props.margin_top = margin
         self.grid.attach(self.buttons_grid, 1, 9, 1, 1)
 
-        # [1] add buttons
-        left = self.create_button(self.buttons_grid, "Left", None)
-        normal = self.create_button(self.buttons_grid, "Normal", left)
-        right = self.create_button(self.buttons_grid, "Right", normal)
-        invert = self.create_button(self.buttons_grid, "Invert", right)
+        # [1] add buttons with style names
+        left = self.create_button(self.buttons_grid, "Left", None, "left-btn")
+        normal = self.create_button(self.buttons_grid, "Normal", left, "normal-btn")
+        right = self.create_button(self.buttons_grid, "Right", normal, "right-btn")
+        invert = self.create_button(self.buttons_grid, "Invert", right, "invert-btn")
+
+        # Add CSS for button colors
+        css = b"""
+        .left-btn { background: #2196F3; color: white; }
+        .normal-btn { background: #4CAF50; color: white; }
+        .right-btn { background: #FF9800; color: white; }
+        .invert-btn { background: #F44336; color: white; }
+        .autodetect-btn { background: #009688; color: white; }
+        """
+        style_provider = Gtk.CssProvider()
+        style_provider.load_from_data(css)
+        Gtk.StyleContext.add_provider_for_screen(
+            Gtk.Window.get_screen(self),
+            style_provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        )
 
         # Remove About button and credits_grid setup
         # (Delete or comment out the following lines:)
@@ -177,9 +194,11 @@ class ScreenOrientationManager(Gtk.Window):
         # Attach the buttons grid at row 8
         self.grid.attach(self.buttons_grid, 1, 9, 1, 1)
 
-    def create_button(self, grid, label, sibling):
+    def create_button(self, grid, label, sibling, style_name=None):
         button = Gtk.Button(label=label)
         button.connect("clicked", self.on_click)
+        if style_name:
+            button.get_style_context().add_class(style_name)
         margin = 20
         if sibling is None:
             grid.attach(button, 1, 1, 1, 1)
