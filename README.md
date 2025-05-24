@@ -54,6 +54,7 @@ By default, the app uses the touchscreen and touchpad ID for Lenovo Chromebook 3
 If you are using a different device, you can find the touchscreen name by running the command `xinput list`. Then edit the textbox in the app, and enter the appropriate touchscreen name.
 
 ### Autodetect
+
 If you want autodetect to work on your device, please add the device information to https://github.com/velvet-os/imagebuilder/issues/334.
 Devices supported by autodetect so far:
 
