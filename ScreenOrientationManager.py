@@ -23,7 +23,7 @@ CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".config", "screen-orientati
 if not os.path.exists(CONFIG_PATH):
     os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok=True)
     with open(CONFIG_PATH, 'w') as f:
-        f.write("Elan Touchpad\nhid-over-i2c 06CB:7817\n\nTrue\n")
+        f.write("Elan Touchpad\nhid-over-i2c 06CB:7817\n\n\nTrue\n")
 
 class ScreenOrientationManager(Gtk.Window):
 
@@ -75,8 +75,8 @@ class ScreenOrientationManager(Gtk.Window):
         self.add(vbox)
 
         # [0] add instruction label
-        self.touchscreen_hint = Gtk.Label(label="Use `xinput list` to find your touchpad id")
-        self.touchscreen_hint2 = Gtk.Label(label="and touchscreen id and enter it below.")
+        self.touchscreen_hint = Gtk.Label(label="Use `xinput list` to find your touchpad, touchscreen, and stylus id")
+        self.touchscreen_hint2 = Gtk.Label(label="and enter them below (stylus optional).")
         self.touchscreen_hint2.props.margin_bottom = 5
         self.grid.attach(self.touchscreen_hint, 0, 1, 50, 1)
         self.grid.attach(self.touchscreen_hint2, 0, 2, 50, 1)
@@ -92,36 +92,45 @@ class ScreenOrientationManager(Gtk.Window):
             self.screen_entry.set_text(devices[1])
         self.grid.attach(self.screen_entry, 1, 3, 50, 1)
 
-        # [2] add touchpad entry
+        # [1.5] add stylus entry
+        self.stylus_label = Gtk.Label(label="Stylus ID")
+        self.stylus_label.props.margin_right = 10
+        self.stylus_label.set_valign(Gtk.Align.CENTER)
+        self.grid.attach(self.stylus_label, 0, 4, 1, 1)
+        self.stylus_entry = Gtk.Entry()
+        self.stylus_entry.set_placeholder_text("Keep this blank if no stylus is present")
+        if len(devices) > 4 and len(devices[4]) != 0:
+            self.stylus_entry.set_text(devices[4])
+        self.grid.attach(self.stylus_entry, 1, 4, 50, 1)
+
+        # [2] add touchpad entry (move down by 1 row)
         self.touchpad_label = Gtk.Label(label="Touchpad ID")
         self.touchpad_label.props.margin_right = 10
         self.touchpad_label.set_valign(Gtk.Align.CENTER)
-        self.grid.attach(self.touchpad_label, 0, 4, 1, 1)
+        self.grid.attach(self.touchpad_label, 0, 5, 1, 1)
         self.touchpad_entry = Gtk.Entry()
         self.touchpad_entry.props.margin_top = margin
         self.touchpad_entry.set_placeholder_text("e.g. ELAN Touchpad")
         if len(devices[0]) != 0:
             self.touchpad_entry.set_text(devices[0])
-        self.grid.attach(self.touchpad_entry, 1, 4, 50, 1)
+        self.grid.attach(self.touchpad_entry, 1, 5, 50, 1)
 
-        # [3] add check button
-        self.display_check = Gtk.CheckButton(label="Lock Touchscreen and Touchpad ID to save")
-        #self.display_check.props.margin_top = margin
-        if len(devices[3]) != 0:
+        # [3] add check button (move down by 1 row)
+        self.display_check = Gtk.CheckButton(label="Lock Touchscreen, Touchpad, and Stylus ID to save")
+        if len(devices) > 3 and len(devices[3]) != 0:
             self.display_check.set_active(bool(devices[3]))
         self.display_check.connect("clicked", self.on_check_changed)
-        self.grid.attach(self.display_check, 1, 5, 1, 1)
+        self.grid.attach(self.display_check, 1, 6, 1, 1)
 
-        # [4] add display entry
+        # [4] add display entry (move down by 1 row)
         self.display_entry = Gtk.Entry()
         self.display_entry.props.margin_top = margin
         self.display_entry.set_placeholder_text("e.g. Video Bus")
         if len(devices[2]) != 0:
             self.display_entry.set_text(devices[2])
-        #self.grid.attach(self.display_entry, 1, 6, 50, 1)
         self.display_entry.set_sensitive(False)
 
-        # [5] button layout
+        # [5] button layout (move down by 1 row)
         self.buttons_grid = Gtk.Grid()
         self.buttons_grid.props.margin_top = margin
         self.grid.attach(self.buttons_grid, 1, 7, 1, 1)
@@ -198,11 +207,15 @@ class ScreenOrientationManager(Gtk.Window):
         about.destroy()
 
     def on_click(self, widget):
-
         label = str(widget.get_label())
         print(label)
-        self.encache(self.touchpad_entry.get_text(), self.screen_entry.get_text(), self.display_entry.get_text(),
-                     str(self.display_check.get_active()))
+        self.encache(
+            self.touchpad_entry.get_text(),
+            self.screen_entry.get_text(),
+            self.display_entry.get_text(),
+            str(self.display_check.get_active()),
+            self.stylus_entry.get_text()
+        )
         if label.lower() == "left":
             self.rotate("l")
         elif label.lower() == "normal":
@@ -216,10 +229,12 @@ class ScreenOrientationManager(Gtk.Window):
         if widget.get_active() is True:
             self.screen_entry.set_sensitive(False)
             self.touchpad_entry.set_sensitive(False)
+            self.stylus_entry.set_sensitive(False)
             self.display_entry.set_sensitive(True)
         else:
             self.screen_entry.set_sensitive(True)
             self.touchpad_entry.set_sensitive(True)
+            self.stylus_entry.set_sensitive(True)
             self.display_entry.set_sensitive(False)
 
     def create_message_dialog(self, title, message):
@@ -231,17 +246,23 @@ class ScreenOrientationManager(Gtk.Window):
     def rotate(self, rotation):
         proc = subprocess.Popen(['sh', os.path.join(script_dir,'rotation-scripts/' + rotation + '.sh'), self.touchpad_entry.get_text(), self.screen_entry.get_text(), self.display_entry.get_text()], stdout=subprocess.PIPE).wait()
 
-    def encache(self, touchpad, touchscreen, display, checked):
+    def encache(self, touchpad, touchscreen, display, checked, stylus=""):
         os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok=True)
         with open(CONFIG_PATH, 'w') as file:
-            file.write(touchpad + "\n" + touchscreen + "\n" + display + "\n" + checked)
+            file.write(
+                touchpad + "\n" +
+                touchscreen + "\n" +
+                display + "\n" +
+                checked + "\n" +
+                stylus + "\n"
+            )
 
     def popcache(self):
-        devices = ["", "", "", ""]
+        devices = ["", "", "", "", ""]
         if os.path.exists(CONFIG_PATH):
             with open(CONFIG_PATH, 'r') as file:
                 lines = file.readlines()
-                for i in range(min(4, len(lines))):
+                for i in range(min(5, len(lines))):
                     devices[i] = lines[i].strip()
         return devices
 
@@ -250,7 +271,8 @@ class ScreenOrientationManager(Gtk.Window):
             self.touchpad_entry.get_text(),
             self.screen_entry.get_text(),
             self.display_entry.get_text(),
-            str(self.display_check.get_active())
+            str(self.display_check.get_active()),
+            self.stylus_entry.get_text()
         )
         # If tray is available, hide window instead of quitting
         if hasattr(self, 'indicator') and self.indicator is not None:
