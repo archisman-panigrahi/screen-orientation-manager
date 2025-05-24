@@ -198,7 +198,7 @@ class ScreenOrientationManager(Gtk.Window):
     def on_credits_clicked(self, widget):
         about = Gtk.AboutDialog(transient_for=self, modal=True)
         about.set_program_name("Screen Orientation Manager for X11")
-        about.set_version("1.2")
+        about.set_version("1.3")
         about.set_comments(
             "This program allows you to rotate the\n"
             "touchscreen, display and touchpad orientation\n"
@@ -414,7 +414,7 @@ class ScreenOrientationManager(Gtk.Window):
         if not configs:
             self.create_message_dialog(
                 f"No configuration found for {computer_name}",
-                f"To add support for your device, please add\n\n"
+                "To add support for your device, please add\n\n"
                 "the output of `xinput list` in this GitHub issue:\n\n"
                 "https://github.com/velvet-os/imagebuilder/issues/334\n\n"
                 "Meanwhile, run `xinput list` to find your touchscreen,\n\n"
