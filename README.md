@@ -2,7 +2,7 @@
 
 ## Screen Orientation Manager for touchscreen tablets (e.g. Surface RT/Touch screen ARM Chromebooks) running GNU/Linux with X11
 
-You can use this app to easily rotate the touchsceen input, display orientation and touchpad input in one go.
+You can use this app to easily rotate the touchsceen input, display orientation and touchpad and stylus input in one go.
 
 ![screenshot1](Screenshots/screenshot1.png)
 ![screenshot2](Screenshots/screenshot2.png)
