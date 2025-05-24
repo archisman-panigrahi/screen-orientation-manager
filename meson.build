@@ -12,6 +12,7 @@ data_dir = join_paths(get_option('prefix'), 'share', 'screen-orientation-manager
 # Install the entire media directory (recursively)
 install_subdir('rotation-scripts', install_dir: data_dir)
 install_data('ScreenOrientationManager.py', install_dir: data_dir)
+install_data('known-configs.txt', install_dir: data_dir)
 
 # Create a wrapper script in /usr/bin
 configure_file(
