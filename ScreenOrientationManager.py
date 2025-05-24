@@ -210,9 +210,9 @@ class ScreenOrientationManager(Gtk.Window):
         about.set_program_name("Screen Orientation Manager for X11")
         about.set_version("1.3.1")
         about.set_comments(
-            "This program allows you to rotate the\n"
-            "touchscreen, display and touchpad orientation\n"
-            "of your convertible laptop or tablet running X11.\n"
+            "This program allows you to rotate the touchscreen,\n"
+            "display, touchpad and stylus orientation of\n"
+            "your convertible laptop or tablet running X11.\n"
         )
         about.set_website("https://github.com/archisman-panigrahi/surface-RT-screen-rotator/tree/screen-orientation-manager")
         about.set_website_label("Homepage")
@@ -423,7 +423,7 @@ class ScreenOrientationManager(Gtk.Window):
 
         if not configs:
             self.create_message_dialog(
-                f"No configuration found for {computer_name}",
+                f"Configuration not known for {computer_name}",
                 "To add support for your device, please add\n\n"
                 "the output of `xinput list` in this GitHub issue:\n\n"
                 "https://github.com/velvet-os/imagebuilder/issues/334\n\n"
