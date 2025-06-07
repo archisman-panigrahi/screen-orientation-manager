@@ -1,6 +1,6 @@
 # <img src="screen-orientation-manager.svg" align="left" width="128" height="128">
 
-## Screen Orientation Manager for touchscreen tablets running GNU/Linux with X11
+## Screen Orientation Manager for touchscreen tablets and hybrid laptops running GNU/Linux with X11
 
 You can use this app to easily rotate the touchsceen input, display orientation, touchpad and stylus input in one go.
 
