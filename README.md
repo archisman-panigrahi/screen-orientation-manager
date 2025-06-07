@@ -1,8 +1,14 @@
 # <img src="screen-orientation-manager.svg" align="left" width="128" height="128">
 
-## Screen Orientation Manager for touchscreen tablets (e.g. Surface RT/Touch screen ARM Chromebooks) running GNU/Linux with X11
+## Screen Orientation Manager for touchscreen tablets running GNU/Linux with X11
 
 You can use this app to easily rotate the touchsceen input, display orientation, touchpad and stylus input in one go.
+
+### Why?
+
+While automatic rotation of input devices works seamlessly in GNOME and KDE on Wayland, many entry-level devices use lightweight desktop environments like XFCE, MATE, or LXDE, which rely on X11 and lack support for automatic touchscreen input rotation. As a result, when the screen is rotated, touch inputs can become misaligned (e.g., after rotating the screen, touching the top-left corner might register as a tap in the bottom-right). This app resolves that issue. It also runs in the system tray, making it easy to access when using the device in tablet mode.
+
+If you want us to add autodetect support for your device, please open an issue in [GitHub issues](https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues).
 
 ![screenshot1](Screenshots/screenshot1.png)
 ![screenshot2](Screenshots/screenshot2.png)
@@ -55,7 +61,8 @@ If you are using a different device, you can find the touchscreen name by runnin
 
 ### Autodetect
 
-If you want autodetect to work on your device, please add the device information to https://github.com/velvet-os/imagebuilder/issues/334.
+If you want autodetect to work on your device, please add the device information to either https://github.com/velvet-os/imagebuilder/issues/334, or at https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues so that we can add its configuration to the app.
+
 Devices supported by autodetect so far:
 
 - Google Hana (Lenovo Chromebook 300e)
