@@ -1,4 +1,4 @@
-project('screen-orientation-manager', meson_version: '>=0.59.0')
+project('screen-orientation-manager', meson_version: '>=0.45.1')
 
 py3 = import('python')
 gnome = import('gnome')
