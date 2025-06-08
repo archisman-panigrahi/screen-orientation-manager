@@ -15,8 +15,6 @@ If you want us to add autodetect support for your device, please open an issue i
 
 Based on [theGeekyLad/GtkExperiments](https://github.com/theGeekyLad/GtkExperiments)
 
-Tested in Surface RT [running Raspberry Pi OS](https://openrt.gitbook.io/open-surfacert/surface-rt/linux/root-filesystem/distros/raspberry-pi-os) and [Lenovo Chromebook 300e](https://velvet-os.github.io/) running Debian Trixie.
-
 **Note**: You need to be on an **Xorg** session for results as unfortunately _Wayland isn't supported_ at the moment.
 
 ### Installation
