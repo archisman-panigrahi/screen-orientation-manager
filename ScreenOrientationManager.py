@@ -381,9 +381,13 @@ class ScreenOrientationManager(Gtk.Window):
         try:
             with open("/sys/firmware/devicetree/base/model", "r") as f:
                 computer_name = f.read().strip()
-        except Exception as e:
-            self.create_message_dialog("Autodetect Error", f"Could not read model: {e}")
-            return
+        except Exception:
+            try:
+                with open("/sys/devices/virtual/dmi/id/product_name", "r") as f:
+                    computer_name = f.read().strip()
+            except Exception as e:
+                self.create_message_dialog("Autodetect Error", f"Could not read model: {e}")
+                return
 
         # Read known configs
         with open(known_configs_path, "r") as f:

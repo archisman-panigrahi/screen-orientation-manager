@@ -25,3 +25,10 @@ hid-over-i2c 0603:604A
 
 True
 hid-over-i2c 0603:604A Stylus stylus
+
+# Blooguard
+Elan Touchpad
+GTCH7503:00 2A94:A803
+
+True
+
