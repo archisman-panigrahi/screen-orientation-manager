@@ -1,8 +1,8 @@
 # <img src="screen-orientation-manager.svg" align="left" width="128" height="128">
 
-## Screen Orientation Manager for touchscreen tablets and hybrid laptops running GNU/Linux with X11
+## Screen Orientation Manager for touchscreen tablets and convertible laptops running GNU/Linux with X11
 
-You can use this app to easily rotate the touchsceen input, display orientation, touchpad and stylus input in one go.
+You can use this app to easily rotate the touchscreen input, display orientation, touchpad and stylus input in one go.
 
 ### Why?
 
@@ -68,6 +68,7 @@ Devices supported by autodetect so far:
 - Google Hana (Lenovo Chromebook 300e)
 - Google Scarlet (Acer Chromebook Tab 10)
 - Google Wormdingler (Lenovo Chromebook Duet 3)
+- Blooguard (HP Chromebook x360 14a-ca0/14b-ca0)
 
 
 ### Credits
