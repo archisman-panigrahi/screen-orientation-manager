@@ -30,6 +30,14 @@ sudo apt install /path/to/downloaded_installer.deb
 ```
 Or use a graphical installer like GDebi to install the .deb file.
 
+In Ubuntu, you can use the official PPA
+
+```
+sudo add-apt-repository ppa:apandada1/screen-orientation-manager
+sudo apt update
+sudo screen-orientation-manager
+```
+
 #### Other operating systems
 
 This project uses the Meson build system for configuration and installation.
