@@ -36,6 +36,13 @@ sudo apt update
 sudo screen-orientation-manager
 ```
 
+#### Arch Linux
+
+You can get it from the [AUR](https://aur.archlinux.org/packages/screen-orientation-manager-git)
+```
+yay -S screen-orientation-manager-git
+```
+
 #### Other operating systems
 
 This project uses the Meson build system for configuration and installation.
