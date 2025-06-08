@@ -72,7 +72,7 @@ screen-orientation-manager
 By default, the app uses the touchscreen and touchpad ID for Lenovo Chromebook 300e (HANA).
 If you are using a different device, you can find the touchscreen name by running the command `xinput list`. Then edit the textbox in the app, and enter the appropriate touchscreen name.
 
-### Autodetect
+### Autodetect configuration
 
 If you want autodetect to work on your device, please add the device information to either https://github.com/velvet-os/imagebuilder/issues/334, or at https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues so that we can add its configuration to the app.
 
