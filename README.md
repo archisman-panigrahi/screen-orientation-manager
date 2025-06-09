@@ -78,10 +78,11 @@ If you want autodetect to work on your device, please add the device information
 
 Devices supported by autodetect so far:
 
+- Blooguard (HP Chromebook x360 14a-ca0/14b-ca0)
 - Google Hana (Lenovo Chromebook 300e)
 - Google Scarlet (Acer Chromebook Tab 10)
 - Google Wormdingler (Lenovo Chromebook Duet 3)
-- Blooguard (HP Chromebook x360 14a-ca0/14b-ca0)
+- Microsoft Surface RT
 
 
 ### Credits

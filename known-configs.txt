@@ -32,3 +32,10 @@ GTCH7503:00 2A94:A803
 
 True
 
+
+# Microsoft Surface RT
+
+hid-over-i2c 03EB:8207
+
+True
+
