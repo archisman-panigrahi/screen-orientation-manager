@@ -276,7 +276,7 @@ class ScreenOrientationManager(Gtk.Window):
         message_dialog.destroy()
 
     def rotate(self, rotation):
-        proc = subprocess.Popen(['sh', os.path.join(script_dir,'rotation-scripts/' + rotation + '.sh'), self.touchpad_entry.get_text(), self.screen_entry.get_text(), self.display_entry.get_text()], stdout=subprocess.PIPE).wait()
+        proc = subprocess.Popen(['sh', os.path.join(script_dir,'rotation-scripts/' + rotation + '.sh'), self.touchpad_entry.get_text(), self.screen_entry.get_text(), self.display_entry.get_text(), self.stylus_entry.get_text()], stdout=subprocess.PIPE).wait()
 
     def encache(self, touchpad, touchscreen, display, checked, stylus=""):
         os.makedirs(os.path.dirname(CONFIG_PATH), exist_ok=True)

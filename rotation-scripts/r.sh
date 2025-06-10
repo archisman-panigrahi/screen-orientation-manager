@@ -49,4 +49,7 @@ if [ ! -z "$3" ]
 then
     xrandr --output "$3" --rotate right
 fi
-
+if [ ! -z "$4" ]
+then
+    xinput set-prop "$4" 'Coordinate Transformation Matrix' $right
+fi
