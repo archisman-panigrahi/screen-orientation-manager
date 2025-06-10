@@ -1,19 +1,19 @@
 # Computer name
-touchpad-name (keep blank if unavialable)
+touchpad-name (write N/A if unavialable)
 touchscreen-name
 keep-blank
 True
-stylus-name (keep blank if unavailable)
+stylus-name (write N/A if unavailable)
 keep-blank
 # Google Hana
 Elan Touchpad
 hid-over-i2c 06CB:7817
 
 True
-
+N/A
 
 # Google Scarlet
-
+N/A
 Elan Touchscreen
 
 True
@@ -31,11 +31,11 @@ Elan Touchpad
 GTCH7503:00 2A94:A803
 
 True
-
+N/A
 
 # Microsoft Surface RT
-
+N/A
 hid-over-i2c 03EB:8207
 
 True
-
+N/A
