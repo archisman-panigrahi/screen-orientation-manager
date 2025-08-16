@@ -430,9 +430,8 @@ class ScreenOrientationManager(Gtk.Window):
         if not configs:
             self.create_message_dialog(
                 f"Configuration not known for {computer_name}",
-                "To add support for your device, please add\n\n"
-                "the output of `xinput list` in this GitHub issue:\n\n"
-                "https://github.com/velvet-os/imagebuilder/issues/334\n\n"
+                "To add support for your device, open a GitHub issue\n\n"
+                "https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues/\n\n"
                 "Meanwhile, run `xinput list` to find your touchscreen,\n\n"
                 "touchpad, and stylus ID and enter them manually in the app."
             )
