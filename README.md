@@ -43,6 +43,17 @@ You can get it from the [AUR](https://aur.archlinux.org/packages/screen-orientat
 yay -S screen-orientation-manager-git
 ```
 
+#### PostmarketOS
+
+Since `meson` is not available on PostmarketOS, you can use the bash script installer instead.
+```
+git clone https://github.com/archisman-panigrahi/surface-RT-screen-rotator.git
+cd surface-RT-screen-rotator
+chmod +x alternate-install.sh
+sudo bash alternate-install.sh
+```
+Note that if you use this procedure, you have to manually uninstall the app by removing the files.
+
 #### Other operating systems
 
 This project uses the Meson build system for configuration and installation.
