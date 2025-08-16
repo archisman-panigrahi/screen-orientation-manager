@@ -15,7 +15,7 @@ If you want us to add autodetect support for your device, please open an issue i
 
 Based on [theGeekyLad/GtkExperiments](https://github.com/theGeekyLad/GtkExperiments)
 
-**Note**: You need to be on an **Xorg** session for results as unfortunately _Wayland isn't supported_ at the moment.
+**Note**: You need to be on an **Xorg** session for this app to work as _Wayland isn't supported_ at the moment.
 
 ### Installation
 
