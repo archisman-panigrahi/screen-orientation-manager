@@ -210,7 +210,7 @@ class ScreenOrientationManager(Gtk.Window):
     def on_credits_clicked(self, widget):
         about = Gtk.AboutDialog(transient_for=self, modal=True)
         about.set_program_name("Screen Orientation Manager for X11")
-        about.set_version("1.3.5")
+        about.set_version("1.4")
         about.set_comments(
             "This program allows you to rotate the touchscreen,\n"
             "display, touchpad and stylus orientation of\n"
