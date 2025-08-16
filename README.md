@@ -17,38 +17,6 @@ Based on [theGeekyLad/GtkExperiments](https://github.com/theGeekyLad/GtkExperime
 
 **Note**: You need to be on an **Xorg** session for this app to work. **Wayland isn't supported** at the moment. DEs which support Wayland, such as GNOME or KDE have inbuilt support for gyroscope based display and touch input orientation, so Wayland-support is currently of low priority.
 
-### Command line usage
-
-After installation, you can run `screen-orientation-manager invert` to invert the screen. In this case, the orientation will be flipped upside down, but the app will not keep running in the background (ideal if you want to run this as a startup script and forget about it!). If you want the app to keep running in the background after applying the display orientation change, run `screen-orientation-manager invert --persist` instead.
-
-You can use either `normal`, `invert`, `left` and `right`. Note that `screen-orientation-manager --invert` also works (in combination with `--persist`).
-
-If you want to run this without installing, you can also do `python3 /path/to/ScreenOrientationManager.py invert`.
-
-Here are all the supported options
-
-```
-$ screen-orientation-manager --help
-
-usage: ScreenOrientationManager.py [-h] [--normal | --left | --right |
-                                   --invert] [--persist]
-                                   [{normal,left,right,invert}]
-
-Screen Orientation Manager for X11
-
-positional arguments:
-  {normal,left,right,invert}
-                        Rotation (alternative positional form)
-
-options:
-  -h, --help            show this help message and exit
-  --normal              Rotate to normal orientation
-  --left                Rotate to left orientation
-  --right               Rotate to right orientation
-  --invert              Rotate to inverted orientation
-  --persist             Keep the GUI running after applying rotation
-```
-
 ### Installation
 
 #### Raspberry Pi OS/Debian/Ubuntu
@@ -114,6 +82,39 @@ screen-orientation-manager
 
 By default, the app uses the touchscreen and touchpad ID for Lenovo Chromebook 300e (HANA).
 If you are using a different device, you can find the touchscreen name by running the command `xinput list`. Then edit the textbox in the app, and enter the appropriate touchscreen name.
+
+
+### Command line usage
+
+After installing and configuring the app, you can run `screen-orientation-manager invert` to invert the screen. In this case, the orientation will be flipped upside down, but the app will not keep running in the background (ideal if you want to run this as a startup script and forget about it!). If you want the app to keep running in the background after applying the display orientation change, run `screen-orientation-manager invert --persist` instead.
+
+You can use either `normal`, `invert`, `left` and `right`. Note that `screen-orientation-manager --invert` also works (in combination with `--persist`).
+
+If you want to run this without installing, you can also do `python3 /path/to/ScreenOrientationManager.py invert`.
+
+Here are all the supported options
+
+```
+$ screen-orientation-manager --help
+
+usage: ScreenOrientationManager.py [-h] [--normal | --left | --right |
+                                   --invert] [--persist]
+                                   [{normal,left,right,invert}]
+
+Screen Orientation Manager for X11
+
+positional arguments:
+  {normal,left,right,invert}
+                        Rotation (alternative positional form)
+
+options:
+  -h, --help            show this help message and exit
+  --normal              Rotate to normal orientation
+  --left                Rotate to left orientation
+  --right               Rotate to right orientation
+  --invert              Rotate to inverted orientation
+  --persist             Keep the GUI running after applying rotation
+```
 
 ### Autodetect configuration
 
