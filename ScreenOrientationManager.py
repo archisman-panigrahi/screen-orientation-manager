@@ -2,6 +2,8 @@ import gi
 import subprocess
 import os
 import re
+import argparse
+import sys
 
 gi.require_version('Gtk', '3.0')
 
@@ -453,9 +455,70 @@ class ScreenOrientationManager(Gtk.Window):
         )
         self.create_message_dialog("Autodetect", f"Configuration for '{config['device_name']}' loaded.")
 
+def _load_config_devices():
+    # Returns tuple (touchpad, touchscreen, display, stylus)
+    devices = ["", "", "", "", ""]
+    if os.path.exists(CONFIG_PATH):
+        with open(CONFIG_PATH, 'r') as f:
+            lines = [l.strip() for l in f.readlines()]
+            for i in range(min(5, len(lines))):
+                devices[i] = lines[i]
+    # touchpad, touchscreen, display, _, stylus
+    return devices[0], devices[1], devices[2], devices[4]
 
-win = ScreenOrientationManager()
-win.connect("delete-event", win.on_window_close)  # Save config before closing
-win.connect("destroy", Gtk.main_quit)
-win.show_all()
-Gtk.main()
+def _perform_headless_rotation(letter):
+    touchpad, touchscreen, display, stylus = _load_config_devices()
+    script_path = os.path.join(script_dir, 'rotation-scripts', f'{letter}.sh')
+    subprocess.Popen(
+        ['sh', script_path, touchpad, touchscreen, display, stylus],
+        stdout=subprocess.PIPE
+    ).wait()
+
+def _parse_args():
+    parser = argparse.ArgumentParser(
+        description="Screen Orientation Manager for X11"
+    )
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument("--normal", action="store_true", help="Rotate to normal orientation")
+    group.add_argument("--left", action="store_true", help="Rotate to left orientation")
+    group.add_argument("--right", action="store_true", help="Rotate to right orientation")
+    group.add_argument("--invert", action="store_true", help="Rotate to inverted orientation")
+    parser.add_argument("--persist", action="store_true",
+                        help="Keep the GUI running after applying rotation")
+    # Also allow a single positional argument: normal|left|right|invert
+    parser.add_argument("rotation", nargs="?", choices=["normal", "left", "right", "invert"],
+                        help="Rotation (alternative positional form)")
+    return parser.parse_args()
+
+def _determine_rotation(args):
+    if args.normal or args.rotation == "normal":
+        return "n"
+    if args.left or args.rotation == "left":
+        return "l"
+    if args.right or args.rotation == "right":
+        return "r"
+    if args.invert or args.rotation == "invert":
+        return "i"
+    return None
+
+if __name__ == "__main__":
+    args = _parse_args()
+    rotation_letter = _determine_rotation(args)
+
+    if rotation_letter and not args.persist:
+        # Headless one-shot rotation and exit (no extra tray instance)
+        _perform_headless_rotation(rotation_letter)
+        sys.exit(0)
+
+    # Start GUI
+    win = ScreenOrientationManager()
+    win.connect("delete-event", win.on_window_close)
+    win.connect("destroy", Gtk.main_quit)
+    win.show_all()
+
+    # If a rotation was requested with --persist, perform it after GUI init
+    if args.persist and rotation_letter:
+        # Use a timeout to allow the GUI to initialize before performing rotation
+        GObject.timeout_add(100, _perform_headless_rotation, rotation_letter)
+
+    Gtk.main()
