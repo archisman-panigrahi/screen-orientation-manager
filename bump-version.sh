@@ -27,7 +27,7 @@ if [ -z "$EMAIL" ]; then EMAIL="${DEBEMAIL:-you@example.com}"; fi
 DATE=$(date -R)
 
 # Prepare changelog entry
-ENTRY="surface-RT-screen-rotator ($NEW_VERSION) $DIST; urgency=medium
+ENTRY="screen-orientation-manager ($NEW_VERSION) $DIST; urgency=medium
 
   * $CHANGELOG_MSG
 
