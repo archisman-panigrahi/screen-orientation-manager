@@ -39,3 +39,10 @@ hid-over-i2c 03EB:8207
 
 True
 N/A
+
+# Aspire SW5-012
+ITE Tech. Inc. ITE Device(8595)
+SYNA7300:00 06CB:0E75
+
+True
+N/A
