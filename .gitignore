@@ -1,0 +1,4 @@
+debian/screen-orientation-manager*
+debian/.debhelper*
+debian/debhelper*
+debian/files
