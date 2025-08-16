@@ -60,7 +60,7 @@ sudo apt install /path/to/downloaded_installer.deb
 ```
 Or use a graphical installer like GDebi to install the .deb file.
 
-In Ubuntu, you can use the official PPA
+In Ubuntu, you can use the [official PPA](https://code.launchpad.net/~apandada1/+archive/ubuntu/screen-orientation-manager)
 
 ```
 sudo add-apt-repository ppa:apandada1/screen-orientation-manager
