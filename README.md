@@ -15,7 +15,7 @@ If you want us to add autodetect support for your device, please open an issue i
 
 Based on [theGeekyLad/GtkExperiments](https://github.com/theGeekyLad/GtkExperiments)
 
-**Note**: You need to be on an **Xorg** session for this app to work as _Wayland isn't supported_ at the moment.
+**Note**: You need to be on an **Xorg** session for this app to work. **Wayland isn't supported** at the moment. DEs which support Wayland, such as GNOME or KDE have inbuilt support for gyroscope based display and touch input orientation, so Wayland-support is currently of low priority.
 
 ### Installation
 
