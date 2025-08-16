@@ -122,7 +122,7 @@ If you want autodetect to work on your device, please add the device information
 
 Devices supported by autodetect so far:
 
-- Acer Aspire SW5-012
+- Aspire SW5-012 (Acer Aspire Switch 10)
 - Blooguard (HP Chromebook x360 14a-ca0/14b-ca0)
 - Google Hana (Lenovo Chromebook 300e)
 - Google Scarlet (Acer Chromebook Tab 10)
