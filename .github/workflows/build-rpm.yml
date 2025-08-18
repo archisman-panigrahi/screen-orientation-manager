@@ -1,7 +1,6 @@
 name: Build RPM
 
-
-
+on:
   workflow_dispatch:
   push:
     branches: [ screen-orientation-manager ]
