@@ -95,6 +95,16 @@
   </releases>
   <url type="homepage">https://github.com/archisman-panigrahi/surface-RT-screen-rotator</url>
   <url type="bugtracker">https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://github.com/archisman-panigrahi/surface-RT-screen-rotator/raw/9ab592565325d7334bfec293f493fc744c634bd1/Screenshots/screenshot3.png</image>
+      <caption>Main window: rotate display, touchscreen, and touchpad with colorful buttons.</caption>
+    </screenshot>
+    <screenshot>
+      <image>https://github.com/archisman-panigrahi/surface-RT-screen-rotator/raw/9ab592565325d7334bfec293f493fc744c634bd1/Screenshots/screenshot4.png</image>
+      <caption>System tray icon and quick access menu for orientation actions.</caption>
+    </screenshot>
+  </screenshots>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0</project_license>
 </component>
