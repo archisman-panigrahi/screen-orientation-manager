@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.archisman_panigrahi.screen-orientation-manager</id>
+  <name>Screen Orientation Manager</name>
+  <summary>Rotate the touchscreen, display, and touchpad orientation for convertible laptops and tablets (X11 only)</summary>
+  <developer_name>Archisman Panigrahi</developer_name>
+  <description>
+    <p>Screen Orientation Manager is a simple GTK3 application for X11-based desktop environments that allows you to manually or automatically rotate the display, touchscreen, and touchpad orientation on convertible laptops and tablets. It supports device autodetection, stylus support, and provides a system tray icon for quick access.</p>
+    <ul>
+      <li>Manual and automatic rotation for display, touchscreen, and touchpad</li>
+      <li>Autodetection of known devices</li>
+      <li>Colorful buttons for orientation actions</li>
+      <li>System tray icon (Ayatana AppIndicator) for quick access</li>
+      <li>Remembers device configuration</li>
+      <li>Can be invoked from the command line with arguments</li>
+    </ul>
+  </description>
+  <releases>
+    <release version="1.4" date="2025-08-16">
+      <description>
+        <ul>
+          <li>Add command line arguments</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.3.5" date="2025-08-15">
+      <description>
+        <ul>
+          <li>Add support for Acer Aspire SW5-012</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.3.4" date="2025-06-10">
+      <description>
+        <ul>
+          <li>Fix stylus code</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.3.3" date="2025-06-09">
+      <description>
+        <ul>
+          <li>Add autodetect support for Microsoft Surface RT</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.3.2" date="2025-06-08">
+      <description>
+        <ul>
+          <li>Add autodetect support for Blooguard</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.3.1" date="2025-05-23">
+      <description>
+        <ul>
+          <li>Add colorful buttons for Left, Normal, Right, Invert, and Autodetect actions</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.3" date="2025-05-23">
+      <description>
+        <ul>
+          <li>Add stylus support</li>
+          <li>Autodetect support</li>
+          <li>Allow selecting text in messages</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.2" date="2025-05-15">
+      <description>
+        <ul>
+          <li>Fixed application icon not appearing in the XFCE dock by adding StartupWMClass to desktop file</li>
+          <li>Added direct orientation change options (Left, Normal, Right, Invert) to the system tray menu for quicker access</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.1" date="2025-05-11">
+      <description>
+        <ul>
+          <li>Added optional system tray icon (Ayatana AppIndicator) for quick access and background operation</li>
+          <li>Window now minimizes to tray instead of closing (if tray is available)</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.0" date="2025-05-10">
+      <description>
+        <ul>
+          <li>Manually rotate touchscreen and touchpad input for laptops/tablets</li>
+          <li>Simple GTK3 interface with configurable touchpad xinput ID</li>
+          <li>Saves device configuration for future sessions</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+  <url type="homepage">https://github.com/archisman-panigrahi/surface-RT-screen-rotator</url>
+  <url type="bugtracker">https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues</url>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0</project_license>
+</component>

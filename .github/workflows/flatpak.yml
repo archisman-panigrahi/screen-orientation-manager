@@ -1,0 +1,33 @@
+name: Build Flatpak
+
+on:
+  push:
+    branches:
+      - screen-orientation-manager
+  pull_request:
+    branches:
+      - screen-orientation-manager
+  workflow_dispatch:
+
+jobs:
+  build-flatpak:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Flatpak remotes
+        run: |
+          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+      - name: Build Flatpak
+        run: |
+          flatpak-builder --user --install --force-clean build-dir io.github.archisman_panigrahi.screen-orientation-manager.yml
+
+      - name: Upload Flatpak bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: flatpak-bundle
+          path: build-dir
