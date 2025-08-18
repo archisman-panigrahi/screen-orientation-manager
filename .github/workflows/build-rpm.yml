@@ -23,7 +23,7 @@ jobs:
       - name: Install build dependencies
         run: |
           dnf -y update
-          dnf -y install meson python3-devel python3-gobject gtk3-devel xorg-x11-server-utils desktop-file-utils rpm-build git
+          dnf -y install meson python3-devel python3-gobject gtk3-devel desktop-file-utils rpm-build git
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up source tarball

@@ -14,7 +14,6 @@ BuildRequires:  desktop-file-utils
 Requires:       python3
 Requires:       python3-gobject
 Requires:       gtk3
-Requires:       x11-xserver-utils
 Recommends:     ayatana-indicator-application
 
 %description
