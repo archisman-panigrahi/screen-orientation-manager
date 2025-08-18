@@ -1,0 +1,26 @@
+{
+  "app-id": "io.github.archisman_panigrahi.screen-orientation-manager",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "48",
+  "sdk": "org.gnome.Sdk",
+  "sdk-version" : "48",
+  "command": "screen-orientation-manager",
+  "finish-args": [
+    "--socket=x11",
+    "--socket=wayland",
+    "--filesystem=home:ro"
+  ],
+  "modules": [
+    {
+      "name": "screen-orientation-manager",
+      "buildsystem": "meson",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/archisman-panigrahi/surface-RT-screen-rotator.git",
+          "branch": "screen-orientation-manager"
+        }
+      ]
+    }
+  ]
+}
