@@ -15,6 +15,9 @@
     {
       "name": "screen-orientation-manager",
       "buildsystem": "meson",
+      "build-options": {
+        "install-runtime-deps": ["xorg-xinput"]
+      },
       "sources": [
         {
           "type": "git",
