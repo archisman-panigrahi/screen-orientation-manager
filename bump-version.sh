@@ -44,4 +44,10 @@ else
     echo "$ENTRY" > "$CHANGELOG"
 fi
 
-echo "Version updated to $NEW_VERSION in $PYFILE and changelog updated."
+SPECFILE="screen-orientation-manager.spec"
+if [ -f "$SPECFILE" ]; then
+    sed -i -E "s/^(Version:[[:space:]]*)[0-9.]+/\1$NEW_VERSION/" "$SPECFILE"
+    echo "Version updated to $NEW_VERSION in $PYFILE, $SPECFILE and changelog updated."
+else
+    echo "Version updated to $NEW_VERSION in $PYFILE and changelog updated. (Spec file not found)"
+fi
