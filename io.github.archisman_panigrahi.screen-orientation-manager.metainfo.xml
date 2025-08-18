@@ -2,8 +2,10 @@
 <component type="desktop-application">
   <id>io.github.archisman_panigrahi.screen-orientation-manager</id>
   <name>Screen Orientation Manager</name>
-  <summary>Rotate the touchscreen, display, and touchpad orientation for convertible laptops and tablets (X11 only)</summary>
-  <developer_name>Archisman Panigrahi</developer_name>
+  <summary>Rotate display, touchscreen, and touchpad orientation on convertible devices (X11 only)</summary>
+  <developer id="io.github.archisman-panigrahi">
+    <name>Archisman Panigrahi</name>
+  </developer>
   <description>
     <p>Screen Orientation Manager is a simple GTK3 application for X11-based desktop environments that allows you to manually or automatically rotate the display, touchscreen, and touchpad orientation on convertible laptops and tablets. It supports device autodetection, stylus support, and provides a system tray icon for quick access.</p>
     <ul>
@@ -95,13 +97,23 @@
   </releases>
   <url type="homepage">https://github.com/archisman-panigrahi/screen-orientation-manager</url>
   <url type="bugtracker">https://github.com/archisman-panigrahi/screen-orientation-manager/issues</url>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  <launchable type="desktop-id">io.github.archisman_panigrahi.screen-orientation-manager.desktop</launchable>
+  <content_rating type="oars-1.1"/>
+  <categories>
+    <category>Utility</category>
+  </categories>
   <screenshots>
     <screenshot type="default">
       <image>https://github.com/archisman-panigrahi/surface-RT-screen-rotator/raw/9ab592565325d7334bfec293f493fc744c634bd1/Screenshots/screenshot3.png</image>
       <caption>Main window: rotate display, touchscreen, and touchpad with colorful buttons.</caption>
     </screenshot>
     <screenshot>
-      <image>https://github.com/archisman-panigrahi/surface-RT-screen-rotator/raw/9ab592565325d7334bfec293f493fc744c634bd1/Screenshots/screenshot4.png</image>
+      <image>https://github.com/archisman-panigrahi/surface-RT-screen-rotator/raw/ef23f54c3407debf5ef59558376b1ecce668da3a/Screenshots/screenshot4.png</image>
       <caption>System tray icon and quick access menu for orientation actions.</caption>
     </screenshot>
   </screenshots>
