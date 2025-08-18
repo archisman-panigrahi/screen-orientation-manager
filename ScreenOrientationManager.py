@@ -223,7 +223,7 @@ class ScreenOrientationManager(Gtk.Window):
             "display, touchpad and stylus orientation of\n"
             "your convertible laptop or tablet running X11.\n"
         )
-        about.set_website("https://github.com/archisman-panigrahi/surface-RT-screen-rotator/tree/screen-orientation-manager")
+        about.set_website("https://github.com/archisman-panigrahi/screen-orientation-manager")
         about.set_website_label("Homepage")
         about.set_authors([
             "Archisman Panigrahi (@archisman-panigrahi)",
@@ -438,7 +438,7 @@ class ScreenOrientationManager(Gtk.Window):
             self.create_message_dialog(
                 f"Configuration not known for {computer_name}",
                 "To add support for your device, open a GitHub issue\n\n"
-                "https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues/\n\n"
+                "https://github.com/archisman-panigrahi/screen-orientation-manager/issues/\n\n"
                 "Meanwhile, run `xinput list` to find your touchscreen,\n\n"
                 "touchpad, and stylus ID and enter them manually in the app."
             )

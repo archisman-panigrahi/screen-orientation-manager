@@ -93,8 +93,8 @@
       </description>
     </release>
   </releases>
-  <url type="homepage">https://github.com/archisman-panigrahi/surface-RT-screen-rotator</url>
-  <url type="bugtracker">https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues</url>
+  <url type="homepage">https://github.com/archisman-panigrahi/screen-orientation-manager</url>
+  <url type="bugtracker">https://github.com/archisman-panigrahi/screen-orientation-manager/issues</url>
   <screenshots>
     <screenshot type="default">
       <image>https://github.com/archisman-panigrahi/surface-RT-screen-rotator/raw/9ab592565325d7334bfec293f493fc744c634bd1/Screenshots/screenshot3.png</image>

@@ -1,7 +1,7 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: screen-orientation-manager
 Upstream-Contact: Archisman Panigrahi <apandada1@gmail.com>
-Source: https://github.com/archisman-panigrahi/surface-RT-screen-rotator/tree/screen-orientation-manager
+Source: https://github.com/archisman-panigrahi/screen-orientation-manager
 
 Files: *
 Copyright: (C) 2024 Archisman Panigrahi <apandada1@gmail.com>
