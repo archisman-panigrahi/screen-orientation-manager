@@ -12,17 +12,17 @@
     "--filesystem=/sys/firmware/devicetree/base/model:ro"
   ],
   "modules": [
-    {
-  "name": "libayatana-appindicator",
-  "buildsystem": "cmake",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/AyatanaIndicators/libayatana-appindicator.git",
-          "commit": "31e8bb083b307e1cc96af4874a94707727bd1e79"
-        }
-      ]
-    },
+    // {
+    //   "name": "libayatana-appindicator",
+    //   "buildsystem": "cmake",
+    //   "sources": [
+    //     {
+    //       "type": "git",
+    //       "url": "https://github.com/AyatanaIndicators/libayatana-appindicator.git",
+    //       "commit": "31e8bb083b307e1cc96af4874a94707727bd1e79"
+    //     }
+    //   ]
+    // },
     {
       "name": "screen-orientation-manager",
       "buildsystem": "meson",
