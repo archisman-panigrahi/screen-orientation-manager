@@ -1,8 +1,5 @@
 on:
 
-  push:
-    branches:
-      - screen-orientation-manager
   pull_request:
     branches:
       - screen-orientation-manager
