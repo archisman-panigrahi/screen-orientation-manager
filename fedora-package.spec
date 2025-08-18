@@ -22,9 +22,11 @@ This app rotates the touchscreen, display and touchpad orientation of convertibl
 %prep
 %autosetup
 
+
 %build
-meson setup builddir
+meson setup builddir --prefix=/usr
 meson compile -C builddir
+
 
 %install
 meson install -C builddir --destdir=%{buildroot}
@@ -38,5 +40,5 @@ meson install -C builddir --destdir=%{buildroot}
 %{_datadir}/icons/hicolor/scalable/apps/screen-orientation-manager.svg
 
 %changelog
-* Sat Aug 17 2025 Archisman Panigrahi <apandada1@gmail.com> - 1.4-1
+* Sun Aug 17 2025 Archisman Panigrahi <apandada1@gmail.com> - 1.4-1
 - Initial RPM release

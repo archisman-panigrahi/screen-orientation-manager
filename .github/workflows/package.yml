@@ -1,6 +1,11 @@
+
 name: Build and Upload Packages
 
 on:
+  push:
+    branches:
+      - '**'
+  pull_request:
   release:
     types: [published]
   workflow_dispatch:  # Allow manual trigger
@@ -37,4 +42,47 @@ jobs:
         with:
           name: deb-package
           path: "*.deb"
+
+
+  build-rpm:
+    name: Build Fedora RPM Package
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:latest
+    steps:
+      - name: Install dependencies
+        run: |
+          dnf -y update
+          dnf -y install rpm-build rpmdevtools make meson desktop-file-utils python3-devel
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Prepare RPM build tree
+        run: |
+          rpmdev-setuptree
+          cp fedora-package.spec ~/rpmbuild/SPECS/
+          # Extract version from spec file
+          VERSION=$(rpmspec --query --queryformat '%{VERSION}' fedora-package.spec)
+          # Create source tarball with correct name
+          tar czf ~/rpmbuild/SOURCES/screen-orientation-manager-${VERSION}.tar.gz --exclude-vcs --transform "s,^,screen-orientation-manager-${VERSION}/," .
+
+      - name: Build RPM
+        run: |
+          rpmbuild -ba ~/rpmbuild/SPECS/fedora-package.spec
+
+      - name: Upload RPM as workflow artifact (always)
+        uses: actions/upload-artifact@v4
+        with:
+          name: rpm-package
+          path: |
+            ~/rpmbuild/RPMS/**/*.rpm
+
+      - name: Upload RPM to GitHub Release (only for releases)
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ~/rpmbuild/RPMS/**/*.rpm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
