@@ -13,8 +13,8 @@
   ],
   "modules": [
     {
-      "name": "libayatana-appindicator",
-      "buildsystem": "meson",
+  "name": "libayatana-appindicator",
+  "buildsystem": "cmake",
       "sources": [
         {
           "type": "git",
