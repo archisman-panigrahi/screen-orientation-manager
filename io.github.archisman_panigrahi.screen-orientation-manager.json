@@ -8,20 +8,10 @@
   "finish-args": [
     "--socket=x11",
     "--socket=wayland",
-    "--filesystem=home:ro"
+    "--filesystem=/sys/devices/virtual/dmi/id/product_name:ro",
+    "--filesystem=/sys/firmware/devicetree/base/model:ro"
   ],
   "modules": [
-    {
-      "name": "gir1.2-appindicator3-0.1",
-      "buildsystem": "meson",
-      "sources": [
-        {
-          "type": "git",
-          "url": "https://github.com/AyatanaIndicators/libayatana-appindicator.git",
-          "commit": "31e8bb083b307e1cc96af4874a94707727bd1e79"
-        }
-      ]
-    },
     {
       "name": "libayatana-appindicator",
       "buildsystem": "meson",
