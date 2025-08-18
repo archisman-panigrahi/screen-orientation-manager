@@ -1,3 +1,9 @@
+screen-orientation-manager (1.4.1) noble; urgency=medium
+
+  * renamed files for flatpak support
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Mon, 18 Aug 2025 19:53:41 -0400
+
 screen-orientation-manager (1.4) noble; urgency=medium
 
   * add command line arguments

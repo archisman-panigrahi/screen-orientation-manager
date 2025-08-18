@@ -1,5 +1,5 @@
 Name:           screen-orientation-manager
-Version:        1.4
+Version:        1.4.1
 Release:        1%{?dist}
 Summary:        Screen Orientation Manager for X11
 

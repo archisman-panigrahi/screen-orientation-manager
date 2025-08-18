@@ -18,6 +18,11 @@
     </ul>
   </description>
   <releases>
+    <release version="1.4.1" date="2025-08-18">
+      <description>
+        renamed files for flatpak support
+      </description>
+    </release>
     <release version="1.4" date="2025-08-16">
       <description>
         <ul>
