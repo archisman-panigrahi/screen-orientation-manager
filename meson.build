@@ -28,8 +28,8 @@ configure_file(
 )
 
 # Install the desktop file
-install_data('screen-orientation-manager.desktop', install_dir: join_paths(get_option('prefix'), 'share', 'applications'))
+install_data('io.github.archisman_panigrahi.screen-orientation-manager.desktop', install_dir: join_paths(get_option('prefix'), 'share', 'applications'))
 
 # Install the icon to the hicolor directory
-install_data('screen-orientation-manager.svg', install_dir: join_paths(get_option('prefix'), 'share', 'icons/hicolor/scalable/apps'))
+install_data('io.github.archisman_panigrahi.screen-orientation-manager.svg', install_dir: join_paths(get_option('prefix'), 'share', 'icons/hicolor/scalable/apps'))
 

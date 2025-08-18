@@ -45,7 +45,7 @@ class ScreenOrientationManager(Gtk.Window):
 
         # window
         Gtk.Window.__init__(self, title="Screen Orientation Manager for X11")
-        self.set_icon_name("screen-orientation-manager")
+        self.set_icon_name("io.github.archisman_panigrahi.screen-orientation-manager")
 
         # --- Menu Bar ---
         menubar = Gtk.MenuBar()
@@ -179,8 +179,8 @@ class ScreenOrientationManager(Gtk.Window):
         # Add Ayatana AppIndicator (system tray icon) if available
         if HAS_APPINDICATOR:
             self.indicator = AyatanaAppIndicator3.Indicator.new(
-                "screen-orientation-manager",
-                "screen-orientation-manager",  # icon name, or use a path to an icon file
+                "io.github.archisman_panigrahi.screen-orientation-manager",
+                "io.github.archisman_panigrahi.screen-orientation-manager",  # icon name, or use a path to an icon file
                 AyatanaAppIndicator3.IndicatorCategory.APPLICATION_STATUS
             )
             self.indicator.set_status(AyatanaAppIndicator3.IndicatorStatus.ACTIVE)
@@ -233,7 +233,7 @@ class ScreenOrientationManager(Gtk.Window):
         about.set_artists([
             "Archisman Panigrahi and @GuLinux"
         ])
-        about.set_logo_icon_name("screen-orientation-manager")
+        about.set_logo_icon_name("io.github.archisman_panigrahi.screen-orientation-manager")
         about.run()
         about.destroy()
 
