@@ -12,6 +12,7 @@
     "--filesystem=/sys/firmware/devicetree/base/model:ro"
   ],
   "modules": [
+    "shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json",
     {
       "name": "screen-orientation-manager",
       "buildsystem": "meson",
