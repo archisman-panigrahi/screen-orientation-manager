@@ -1,4 +1,4 @@
-# <img src="screen-orientation-manager.svg" align="left" width="128" height="128">
+# <img src="io.github.archisman_panigrahi.screen-orientation-manager.svg" align="left" width="128" height="128">
 
 ## Screen Orientation Manager for touchscreen tablets and convertible laptops running GNU/Linux with X11
 
