@@ -33,7 +33,7 @@ jobs:
       - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
         with:
           bundle: io.github.archisman_panigrahi.screen-orientation-manager.${{ matrix.variant.arch }}.flatpak
-          manifest-path: io.github.archisman_panigrahi.screen-orientation-manager.json
+          manifest-path: flatpak/io.github.archisman_panigrahi.screen-orientation-manager.json
           cache-key: flatpak-builder-${{ github.sha }}-${{ matrix.variant.arch }}
           arch: ${{ matrix.variant.arch }}
       
