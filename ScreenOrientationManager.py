@@ -19,8 +19,15 @@ except (ImportError, ValueError):
 from gi.repository import Gtk, GObject
 script_dir = os.path.dirname(__file__)
 
-# Use config file in user's home directory
-CONFIG_PATH = os.path.join(os.path.expanduser("~"), ".config", "screen-orientation-manager.conf")
+
+# Determine config path in a Flatpak-friendly way
+def get_config_path():
+    # Prefer XDG_CONFIG_HOME if set, else fallback to ~/.config
+    config_home = os.environ.get("XDG_CONFIG_HOME", os.path.join(os.path.expanduser("~"), ".config"))
+    # If running in Flatpak, $HOME is sandboxed, so this will be .var/app/<app-id>/config
+    return os.path.join(config_home, "screen-orientation-manager.conf")
+
+CONFIG_PATH = get_config_path()
 
 # Create config file with defaults if it does not exist
 if not os.path.exists(CONFIG_PATH):
