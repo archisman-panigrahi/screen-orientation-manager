@@ -3,10 +3,10 @@
   "runtime": "org.gnome.Platform",
   "runtime-version": "48",
   "sdk": "org.gnome.Sdk",
-  "sdk-version" : "48",
   "command": "screen-orientation-manager",
   "finish-args": [
-    "--socket=x11",
+    "--share=ipc",
+    "--socket=fallback-x11",
     "--socket=wayland",
     "--filesystem=/sys/devices/virtual/dmi/id/product_name:ro",
     "--filesystem=/sys/firmware/devicetree/base/model:ro"

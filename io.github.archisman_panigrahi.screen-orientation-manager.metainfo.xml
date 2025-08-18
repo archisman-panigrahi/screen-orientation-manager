@@ -106,6 +106,7 @@
   <content_rating type="oars-1.1"/>
   <categories>
     <category>Utility</category>
+    <category>Settings</category>
   </categories>
   <screenshots>
     <screenshot type="default">

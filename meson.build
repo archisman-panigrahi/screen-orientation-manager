@@ -1,4 +1,4 @@
-project('screen-orientation-manager', meson_version: '>=0.45.1')
+project('screen-orientation-manager', meson_version: '>=0.55.0')
 
 py3 = import('python')
 gnome = import('gnome')
@@ -33,3 +33,5 @@ install_data('io.github.archisman_panigrahi.screen-orientation-manager.desktop',
 # Install the icon to the hicolor directory
 install_data('io.github.archisman_panigrahi.screen-orientation-manager.svg', install_dir: join_paths(get_option('prefix'), 'share', 'icons/hicolor/scalable/apps'))
 
+# Install the metainfo file
+install_data('io.github.archisman_panigrahi.screen-orientation-manager.metainfo.xml', install_dir: join_paths(get_option('prefix'), 'share', 'metainfo'))
