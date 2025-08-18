@@ -1,7 +1,7 @@
 app-id: io.github.archisman_panigrahi.screen-orientation-manager
-runtime-version : "48"
-sdk : "org.gnome.Sdk"
-sdk-version : "48"
+runtime: org.gnome.Platform
+runtime-version: "48"
+sdk: org.gnome.Sdk
 command: screen-orientation-manager
 finish-args:
   # Allow access to X11 and wayland
