@@ -41,7 +41,7 @@ True
 N/A
 
 # Aspire SW5-012
-ITE Tech. Inc. ITE Device(8595)
+N/A
 SYNA7300:00 06CB:0E75
 
 True
