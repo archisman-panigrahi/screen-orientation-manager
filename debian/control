@@ -1,7 +1,7 @@
 Source: screen-orientation-manager
 Section: python
 Priority: extra
-Build-Depends: debhelper-compat (=10), meson, dh-make
+Build-Depends: debhelper-compat (=10), meson, dh-make, desktop-file-utils
 Maintainer: Archisman Panigrahi <apandada1@gmail.com>
 Standards-Version: 4.5.0
 

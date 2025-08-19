@@ -59,7 +59,9 @@ if [ -f "$METAINFO" ]; then
     RELEASE_DATE=$(date +%Y-%m-%d)
     RELEASE_ENTRY="    <release version=\"$NEW_VERSION\" date=\"$RELEASE_DATE\">
       <description>
-        $CHANGELOG_MSG
+        <ul>
+          <li>$CHANGELOG_MSG</li>
+        </ul>
       </description>
     </release>"
     # Insert after the opening <releases> tag

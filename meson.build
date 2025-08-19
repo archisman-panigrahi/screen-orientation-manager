@@ -27,6 +27,19 @@ configure_file(
   install_dir: join_paths(get_option('prefix'), 'bin')
 )
 
+# Validate MetaInfo file
+metainfo_file = 'io.github.archisman_panigrahi.screen-orientation-manager.metainfo.xml'
+ascli_exe = find_program('appstreamcli', required: false)
+if ascli_exe.found()
+  test('validate metainfo file',
+        ascli_exe,
+        args: ['validate',
+               '--no-net',
+               '--pedantic',
+               metainfo_file]
+  )
+endif
+
 # Install the desktop file
 install_data('io.github.archisman_panigrahi.screen-orientation-manager.desktop', install_dir: join_paths(get_option('prefix'), 'share', 'applications'))
 
