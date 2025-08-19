@@ -15,4 +15,4 @@ Depends: ${misc:Depends},
 Recommends: gir1.2-ayatanaappindicator3-0.1
 Description: Screen Orientation Manager for X11
  This app rotates the touchscreen, display and touchpad orientation of convertible laptops and tablets running X11 based desktop environments.
-Homepage: https://github.com/archisman-panigrahi/surface-RT-screen-rotator/tree/screen-orientation-manager
+Homepage: https://github.com/archisman-panigrahi/screen-orientation-manager
