@@ -38,6 +38,7 @@ meson install -C builddir --destdir=%{buildroot}
 %{_datadir}/screen-orientation-manager/
 %{_datadir}/applications/io.github.archisman_panigrahi.screen-orientation-manager.desktop
 %{_datadir}/icons/hicolor/scalable/apps/io.github.archisman_panigrahi.screen-orientation-manager.svg
+%{_datadir}/metainfo/io.github.archisman_panigrahi.screen-orientation-manager.metainfo.xml
 
 %changelog
 * Sun Aug 17 2025 Archisman Panigrahi <apandada1@gmail.com> - 1.4-1
