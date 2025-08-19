@@ -69,11 +69,11 @@ Build Instructions:
 - Run the following commands to build and install the application:
 ```
 meson setup builddir --prefix=/usr
-sudo meson install -C builddir
+sudo ninja -C builddir install
 ```
 To uninstall, run
 ```
-sudo meson uninstall -C builddir
+sudo ninja -C builddir uninstall
 ```
 Running the Application
 
