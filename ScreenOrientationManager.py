@@ -437,7 +437,7 @@ class ScreenOrientationManager(Gtk.Window):
         if not configs:
             self.create_message_dialog(
                 f"Configuration not known for {computer_name}",
-                "To add support for your device, open a GitHub issue\n\n"
+                "To add configuration for your device, open a GitHub issue\n\n"
                 "https://github.com/archisman-panigrahi/screen-orientation-manager/issues/\n\n"
                 "Meanwhile, run `xinput list` to find your touchscreen,\n\n"
                 "touchpad, and stylus ID and enter them manually in the app."
