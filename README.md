@@ -58,6 +58,13 @@ sudo bash alternate-install.sh
 ```
 Note that if you use this procedure, you have to manually uninstall the app by removing the files.
 
+#### Other operating systems (Flatpak)
+
+You can download and install flatpak from [GitHub Releases](https://github.com/archisman-panigrahi/screen-orientation-manager/releases/) and install it manually.
+```
+flatpak install /path/to/io.github.archisman_panigrahi.screen-orientation-manager.x86_64.flatpak
+```
+
 #### Other operating systems (Install from source)
 
 This project uses the Meson build system for configuration and installation.
