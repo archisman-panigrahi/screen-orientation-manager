@@ -49,7 +49,7 @@ You can grab the prebuilt RPM from [GithHub releases](https://github.com/archism
 
 #### PostmarketOS
 
-Since `meson` is not available on PostmarketOS, you can use the bash script installer instead.
+Since `meson` is not available on PostmarketOS, you can use the bash script installer instead. You can also use the flatpak (see below).
 ```
 git clone https://github.com/archisman-panigrahi/surface-RT-screen-rotator.git
 cd surface-RT-screen-rotator
@@ -61,6 +61,7 @@ Note that if you use this procedure, you have to manually uninstall the app by r
 #### Other operating systems (Flatpak)
 
 You can download and install flatpak from [GitHub Releases](https://github.com/archisman-panigrahi/screen-orientation-manager/releases/) and install it manually.
+Prebuilt Flatpaks are available for both `x86_64` and `aarch64` (`arm64`). 
 ```
 flatpak install /path/to/io.github.archisman_panigrahi.screen-orientation-manager.x86_64.flatpak
 ```
