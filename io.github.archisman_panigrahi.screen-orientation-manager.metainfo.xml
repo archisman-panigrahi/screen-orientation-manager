@@ -18,6 +18,13 @@
     </ul>
   </description>
   <releases>
+    <release version="1.4.2" date="2025-09-01">
+      <description>
+        <ul>
+          <li>add Asus Transfromer Book T100HAN</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.4.1" date="2025-08-18">
       <description>
         <ul>

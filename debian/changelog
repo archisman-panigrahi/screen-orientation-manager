@@ -1,3 +1,9 @@
+screen-orientation-manager (1.4.2) noble; urgency=medium
+
+  * add Asus Transfromer Book T100HAN
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Mon, 01 Sep 2025 12:59:46 -0400
+
 screen-orientation-manager (1.4.1) noble; urgency=medium
 
   * renamed files for flatpak support
