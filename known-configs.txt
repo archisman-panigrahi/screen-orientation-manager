@@ -13,11 +13,11 @@ True
 N/A
 
 # Google Scarlet
-N/A
+hid-over-i2c 2D1F:0036 Stylus stylus
 Elan Touchscreen
 
 True
-hid-over-i2c 2D1F:0036 Stylus stylus
+N/A
 
 # Google Wormdingler
 Google Inc. Hammer
