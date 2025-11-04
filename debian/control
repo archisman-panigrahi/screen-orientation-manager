@@ -7,11 +7,7 @@ Standards-Version: 4.5.0
 
 Package: screen-orientation-manager
 Architecture: all
-Depends: ${misc:Depends},
- x11-xserver-utils,
- python3,
- python3-gi,
- gir1.2-gtk-3.0
+Depends: ${misc:Depends}, x11-xserver-utils, python3, python3-gi, gir1.2-gtk-3.0
 Recommends: gir1.2-ayatanaappindicator3-0.1
 Description: Screen Orientation Manager for X11
  This app rotates the touchscreen, display and touchpad orientation of convertible laptops and tablets running X11 based desktop environments.
