@@ -4,3 +4,4 @@ debian/debhelper*
 debian/files
 .flatpak-builder/
 repo/
+*.pyc

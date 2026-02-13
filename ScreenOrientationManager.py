@@ -217,7 +217,7 @@ class ScreenOrientationManager(Gtk.Window):
     def on_credits_clicked(self, widget):
         about = Gtk.AboutDialog(transient_for=self, modal=True)
         about.set_program_name("Screen Orientation Manager for X11")
-        about.set_version("1.4.2")
+        about.set_version("1.5.0")
         about.set_comments(
             "This program allows you to rotate the touchscreen,\n"
             "display, touchpad and stylus orientation of\n"
@@ -489,6 +489,8 @@ def _parse_args():
     group.add_argument("--left", action="store_true", help="Rotate to left orientation")
     group.add_argument("--right", action="store_true", help="Rotate to right orientation")
     group.add_argument("--invert", action="store_true", help="Rotate to inverted orientation")
+    parser.add_argument("--tray", action="store_true",
+                        help="Start in tray without showing the window")
     parser.add_argument("--persist", action="store_true",
                         help="Keep the GUI running after applying rotation")
     # Also allow a single positional argument: normal|left|right|invert
@@ -510,8 +512,9 @@ def _determine_rotation(args):
 if __name__ == "__main__":
     args = _parse_args()
     rotation_letter = _determine_rotation(args)
+    keep_running = args.persist or args.tray
 
-    if rotation_letter and not args.persist:
+    if rotation_letter and not keep_running:
         # Headless one-shot rotation and exit (no extra tray instance)
         _perform_headless_rotation(rotation_letter)
         sys.exit(0)
@@ -520,10 +523,11 @@ if __name__ == "__main__":
     win = ScreenOrientationManager()
     win.connect("delete-event", win.on_window_close)
     win.connect("destroy", Gtk.main_quit)
-    win.show_all()
+    if not args.tray:
+        win.show_all()
 
     # If a rotation was requested with --persist, perform it after GUI init
-    if args.persist and rotation_letter:
+    if keep_running and rotation_letter:
         # Use a timeout to allow the GUI to initialize before performing rotation
         GObject.timeout_add(100, _perform_headless_rotation, rotation_letter)
 

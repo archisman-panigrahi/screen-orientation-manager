@@ -1,3 +1,9 @@
+screen-orientation-manager (1.5.0) noble; urgency=medium
+
+  * Added --tray option
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Thu, 12 Feb 2026 21:14:25 -0500
+
 screen-orientation-manager (1.4.2) noble; urgency=medium
 
   * add Asus Transfromer Book T100HAN

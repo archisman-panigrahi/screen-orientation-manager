@@ -98,7 +98,7 @@ If you are using a different device, you can find the touchscreen name by runnin
 
 ### Command line usage
 
-After installing and configuring the app, you can run `screen-orientation-manager invert` to invert the screen. In this case, the orientation will be flipped upside down, but the app will not keep running in the background (ideal if you want to run this as a startup script and forget about it!). If you want the app to keep running in the background after applying the display orientation change, run `screen-orientation-manager invert --persist` instead.
+After installing and configuring the app, you can run `screen-orientation-manager invert` to invert the screen. In this case, the orientation will be flipped upside down, but the app will not keep running in the background (ideal if you want to run this as a startup script and forget about it!). If you want the app to keep running in the background after applying the display orientation change, run `screen-orientation-manager invert --persist` instead. If you want the app to start hidden in the tray, use `--tray` (you can combine this with `invert/left/right/normal`).
 
 You can use either `normal`, `invert`, `left` and `right`. Note that `screen-orientation-manager --invert` also works (in combination with `--persist`).
 
@@ -110,7 +110,7 @@ Here are all the supported options
 $ screen-orientation-manager --help
 
 usage: ScreenOrientationManager.py [-h] [--normal | --left | --right |
-                                   --invert] [--persist]
+                                   --invert] [--tray] [--persist]
                                    [{normal,left,right,invert}]
 
 Screen Orientation Manager for X11
@@ -125,6 +125,7 @@ options:
   --left                Rotate to left orientation
   --right               Rotate to right orientation
   --invert              Rotate to inverted orientation
+  --tray                Start in tray without showing the window
   --persist             Keep the GUI running after applying rotation
 ```
 
