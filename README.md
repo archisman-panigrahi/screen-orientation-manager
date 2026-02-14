@@ -142,6 +142,7 @@ Devices supported by autodetect so far:
 - Google Scarlet (Acer Chromebook Tab 10)
 - Google Wormdingler (Lenovo Chromebook Duet 3)
 - Microsoft Surface RT
+- Microsoft Surface 2
 
 
 ### Credits

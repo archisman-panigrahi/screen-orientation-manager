@@ -18,6 +18,13 @@
     </ul>
   </description>
   <releases>
+    <release version="1.5.1" date="2026-02-14">
+      <description>
+        <ul>
+          <li>support Surface 2</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.5.0" date="2026-02-12">
       <description>
         <ul>
