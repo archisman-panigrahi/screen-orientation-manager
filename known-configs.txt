@@ -62,11 +62,11 @@ True
 N/A
 
 # XPS 13 9365
-DLL077A:01 06CB:76AF
-Wacom HID 482F
+DLL077A:01 06CB:76AF Touchpad
+Wacom HID 482F Finger touch
 
 True
-Wacom HID 482F
+Wacom HID 482F Pen stylus
 
 # To be filled by O.E.M
 FTSC1000:00 2808:5031
