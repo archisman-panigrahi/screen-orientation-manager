@@ -131,7 +131,10 @@ options:
 
 ### Autodetect configuration
 
-If you want autodetect to work on your device, please add the device information to either https://github.com/velvet-os/imagebuilder/issues/334, or at https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues so that we can add its configuration to the app.
+If you want autodetect to work on your device, please add the device information to the following so that we can add its configuration to the app:
+
+ChromeOS devices: https://github.com/velvet-os/imagebuilder/issues/334
+Other devices: https://github.com/archisman-panigrahi/surface-RT-screen-rotator/issues
 
 Devices supported by autodetect so far:
 
