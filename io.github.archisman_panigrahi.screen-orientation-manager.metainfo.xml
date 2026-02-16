@@ -18,6 +18,13 @@
     </ul>
   </description>
   <releases>
+    <release version="1.5.2" date="2026-02-16">
+      <description>
+        <ul>
+          <li>add support for Dell XPS 13 9365 and Linx Cherry Trail tablet</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.5.1" date="2026-02-14">
       <description>
         <ul>

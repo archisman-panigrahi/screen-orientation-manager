@@ -1,3 +1,9 @@
+screen-orientation-manager (1.5.2) noble; urgency=medium
+
+  * add support for Dell XPS 13 9365 and Linx Cherry Trail tablet
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Mon, 16 Feb 2026 08:07:10 -0500
+
 screen-orientation-manager (1.5.1) noble; urgency=medium
 
   * support Surface 2
