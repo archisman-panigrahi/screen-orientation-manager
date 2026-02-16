@@ -138,9 +138,11 @@ Devices supported by autodetect so far:
 - Aspire SW5-012 (Acer Aspire Switch 10)
 - Asus Transfromer Book T100HAN
 - Blooguard (HP Chromebook x360 14a-ca0/14b-ca0)
+- Dell XPS 13 9365
 - Google Hana (Lenovo Chromebook 300e)
 - Google Scarlet (Acer Chromebook Tab 10)
 - Google Wormdingler (Lenovo Chromebook Duet 3)
+- Linx Cherry Trail tablet
 - Microsoft Surface RT
 - Microsoft Surface 2
 
