@@ -11,6 +11,7 @@
    sodipodi:docname="io.github.archisman_panigrahi.screen-orientation-manager.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -24,16 +25,32 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="3.09783"
-     inkscape:cx="68.435001"
-     inkscape:cy="27.761368"
-     inkscape:window-width="1864"
-     inkscape:window-height="1012"
-     inkscape:window-x="56"
+     inkscape:cx="69.080614"
+     inkscape:cy="9.0385851"
+     inkscape:window-width="1366"
+     inkscape:window-height="700"
+     inkscape:window-x="0"
      inkscape:window-y="40"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient3"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#f9dfcc;stop-opacity:1;"
+         offset="0"
+         id="stop3" />
+      <stop
+         style="stop-color:#f9d18d;stop-opacity:1;"
+         offset="0.50500607"
+         id="stop5" />
+      <stop
+         style="stop-color:#f99f80;stop-opacity:1;"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
     <filter
        style="color-interpolation-filters:sRGB;"
        inkscape:label="Blur"
@@ -47,19 +64,37 @@
          result="blur"
          id="feGaussianBlur3" />
     </filter>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3"
+       id="linearGradient4"
+       x1="8.4666672"
+       y1="1.5666671"
+       x2="8.4666672"
+       y2="15.366667"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.0289856,0,0,1.0289856,-0.24541052,-0.24541052)" />
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
     <rect
-       style="fill:#f9dfcc;fill-opacity:1;stroke-width:0.261537"
+       style="fill:#4d4d4d;fill-opacity:1;stroke-width:0.261537"
        id="rect1"
        width="14.816667"
        height="14.816667"
        x="1.0583334"
        y="1.0583334"
        ry="2.3060498" />
+    <rect
+       style="fill:url(#linearGradient4);fill-opacity:1;stroke-width:0.25065"
+       id="rect2"
+       width="14.2"
+       height="14.2"
+       x="1.3666668"
+       y="1.3666668"
+       ry="2.2100725" />
     <g
        fill="none"
        fill-rule="evenodd"
@@ -77,30 +112,6 @@
           <path
              d="m 16.5,2.5 c 3.3,1.5 5.6,4.7 6,8.5 H 24 C 23.4,4.8 18.3,0 12,0 h -0.7 l 3.8,3.8 z M 10.2,1.7 C 9.6,1.1 8.7,1.1 8.1,1.7 L 1.7,8.1 c -0.6,0.6 -0.6,1.5 0,2.1 l 12,12 c 0.6,0.6 1.5,0.6 2.1,0 l 6.4,-6.4 c 0.6,-0.6 0.6,-1.5 0,-2.1 z m 4.6,19.5 -12,-12 6.4,-6.4 12,12 z M 7.5,21.5 C 4.2,20 1.9,16.8 1.5,13 H 0.1 C 0.6,19.2 5.7,24 12,24 h 0.7 L 8.9,20.2 Z"
              id="Shape" />
-        </g>
-      </g>
-    </g>
-    <g
-       fill="none"
-       fill-rule="evenodd"
-       id="g3"
-       stroke="none"
-       stroke-width="1"
-       transform="matrix(0.52301255,0,0,0.52083331,2.1643654,2.2166669)"
-       style="filter:url(#filter3);fill:#4d4d4d">
-      <g
-         fill="#000000"
-         id="g2"
-         transform="translate(-210,-124)"
-         style="fill:#4d4d4d">
-        <g
-           id="g1"
-           transform="translate(210,124)"
-           style="fill:#4d4d4d">
-          <path
-             d="m 16.5,2.5 c 3.3,1.5 5.6,4.7 6,8.5 H 24 C 23.4,4.8 18.3,0 12,0 h -0.7 l 3.8,3.8 z M 10.2,1.7 C 9.6,1.1 8.7,1.1 8.1,1.7 L 1.7,8.1 c -0.6,0.6 -0.6,1.5 0,2.1 l 12,12 c 0.6,0.6 1.5,0.6 2.1,0 l 6.4,-6.4 c 0.6,-0.6 0.6,-1.5 0,-2.1 z m 4.6,19.5 -12,-12 6.4,-6.4 12,12 z M 7.5,21.5 C 4.2,20 1.9,16.8 1.5,13 H 0.1 C 0.6,19.2 5.7,24 12,24 h 0.7 L 8.9,20.2 Z"
-             id="path1"
-             style="fill:#4d4d4d" />
         </g>
       </g>
     </g>
