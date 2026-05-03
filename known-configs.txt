@@ -75,3 +75,10 @@ FTSC1000:00 2808:5031
 True
 N/A
 
+#  MediaTek kodama sku288 board
+hid-over-i2c 04F3:2AC1 Stylus stylus
+hid-over-i2c 04F3:2AC1
+
+True
+N/A
+

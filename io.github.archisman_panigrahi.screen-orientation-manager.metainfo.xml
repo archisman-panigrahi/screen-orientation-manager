@@ -18,6 +18,13 @@
     </ul>
   </description>
   <releases>
+    <release version="1.5.4" date="2026-05-03">
+      <description>
+        <ul>
+          <li>Add Lenovo 10e tablet</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.5.3" date="2026-02-16">
       <description>
         <ul>

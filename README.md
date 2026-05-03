@@ -145,6 +145,7 @@ Devices supported by autodetect so far:
 - Google Hana (Lenovo Chromebook 300e)
 - Google Scarlet (Acer Chromebook Tab 10)
 - Google Wormdingler (Lenovo Chromebook Duet 3)
+- MediaTek kodama sku288 board (Lenovo 10e Chromebook Tablet)
 - Linx Cherry Trail tablet
 - Microsoft Surface RT
 - Microsoft Surface 2

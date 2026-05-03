@@ -1,3 +1,9 @@
+screen-orientation-manager (1.5.4) noble; urgency=medium
+
+  * Add Lenovo 10e tablet
+
+ -- Archisman Panigrahi <apandada1@gmail.com>  Sun, 03 May 2026 09:02:42 -0400
+
 screen-orientation-manager (1.5.3) noble; urgency=medium
 
   * Fix Dell XPS 13 9365
