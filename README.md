@@ -45,7 +45,7 @@ yay -S screen-orientation-manager-git
 
 #### Fedora
 
-You can grab the prebuilt RPM from [GithHub releases](https://github.com/archisman-panigrahi/surface-RT-screen-rotator/releases).
+You can grab the prebuilt RPM from [GitHub releases](https://github.com/archisman-panigrahi/surface-RT-screen-rotator/releases).
 
 #### PostmarketOS
 
